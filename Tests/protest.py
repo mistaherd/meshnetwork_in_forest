@@ -30,4 +30,4 @@ def Read_Memory_module()->int:
         if unit=="G":
             return int(integer)*G
     else:
-        Raise Error("")
+        Raise ValueError("this shouldnt happen there should always be space")

@@ -39,6 +39,9 @@ class test_project_code(unittest.TestCase):
         #testing  turbo 1GB
         self.assertLessEqual(Read_Memory_module,1e9)
         self.assertGreaterEqual(Read_Memory_module,0)
+    def Test_memory_silicon_power_32GB(self):
+        self.assertLessEqual(Read_Memory_module,32e9)
+        self.assertGreaterEqual(Read_Memory_module,0)
     # radio module
     
 
