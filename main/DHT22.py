@@ -1,20 +1,22 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
-#liberiers
-#
 import adafruit_dht 
 import board
-import time
+import datetime
 
+class DHT22:
 ##Set DATA pin to pin 4
-dhtDevice =adafruit_dht.DHT22(board.D4)
-Temperature_c=dhtDevice.temperature
-Humidity=dhtDevice.humidity
-#Print Temperature and Humidity on Shell window
-print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(Temperature_c,humidity))
-# while True:
-#    #Read Temp and Hum from DHT22
-#    h,t = dht.read_retry(dht.DHT22, DHT)
-#    #Print Temperature and Humidity on Shell window
-#    print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(t,h))
-#    sleep(5) #Wait 5 seconds and read again
-# print("Hello world")
+    def __init__(self,boardmethod):
+        # self.dhtDevice =adafruit_dht.DHT22(board.D4)
+        self.dhtDevice =adafruit_dht.DHT11(boardmethod)
+    def Read_data(self)-> tuple[float,float,datetime.datetime]:
+        try:
+            Humidity=self.dhtDevice.humidity
+            Temperature=self.dhtDevice.temperature
+            timestamp =datetime.datetime.now()
+            return Temperature,Humidity,timestamp
+        except RuntimeError as e:
+            print(f"Error reading sensor: {e}")
+            return None, None
+if __name__ =="__main__":
+    dhobj=DHT22(board.D4)
+    dhobj.Read_data()
