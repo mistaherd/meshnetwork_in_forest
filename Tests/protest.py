@@ -15,7 +15,7 @@ def Read_Memory_module():
 	units ={"K": 10e3,"M": 10e6, "G": 10e9}
 	try:
  		output=subprocess.check_output(["bash","test.sh"],universal_newlines=True)
-    		regex="\d{4}\.\[0-9]{1,3}[K,M,G]"
+    	regex="\d{4}\.\[0-9]{1,3}[K,M,G]"
    		match= re.search(regex,output)
 		if match:
 			value,unit=match.group(0).split()
