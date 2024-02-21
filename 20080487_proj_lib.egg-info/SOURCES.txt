@@ -1,8 +1,0 @@
-README.md
-setup.py
-20080487_proj_lib.egg-info/PKG-INFO
-20080487_proj_lib.egg-info/SOURCES.txt
-20080487_proj_lib.egg-info/dependency_links.txt
-20080487_proj_lib.egg-info/top_level.txt
-Tests/__init__.py
-Tests/protest.py
