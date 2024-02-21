@@ -1,11 +1,14 @@
 import unittest
 # from protest import Read_DHT22,Read_MCP3008,Read_AS312,Read_Raspberry_PiVR220,Read_Memory_module
 from DHT22 import DHT22
+import board
+dht22_instance=DHT22()
+dht22_instance.Read_data()
 class test_project_code(unittest.TestCase):
     # DHT22
-    hum,temp,ts=DHT22.Read_data()
     def test_DHT22_output_type(self):
-        self.assertIsInstance(DHT22.Read_data,tuple)
+       
+        self.assertIsInstance(dht22_instance.Read_DHT22_data, tuple)
 
     def test_DHT_22_temp_output_type(self):
         self.assertIsInstance(temp, float)
@@ -44,6 +47,7 @@ class test_project_code(unittest.TestCase):
         self.assertLessEqual(Read_Memory_module,32e9)
         self.assertGreaterEqual(Read_Memory_module,0)
     # radio module
-    
+if __name__ == '__main__':
+    unittest.main()
 
 
