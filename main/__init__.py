@@ -24,19 +24,19 @@ class test_project_code(unittest.TestCase):
     def test_DHT22_hum_range(self):
         self.assertGreaterEqual(hum,0.0)
         self.assertLessEqual(hum,100.0)
-    # # DFR0026 
+     # DFR0026 
     # def test_DFR0026_MCP3008_out_type(self):
     #     self.assertIsInstance(Read_MCP3008,float)
     # def test_DFR0026_MCP3008_out_range(self):
     #     self.assertLessEqual(Read_MCP3008(2,34),5)
     #     self.assertGreaterEqual(Read_MCP3008(2,34),0)
-    # #AS312
-    # def test_AS312_out_type(self):
-    #     self.assertIsInstance(Read_AS312,bool)
-    # # Raspberry Pi VR 220 Camera
-    # def test_Raspberry_Pi_VR220_out_shape(self):
-    #     self.assertEqual(Read_Raspberry_PiVR220.shape,(1920,1080,3))
-    # # battery 
+     #AS312
+     def test_AS312_out_type(self):
+         self.assertIsInstance(Read_AS312,bool)
+     # Raspberry Pi VR 220 Camera
+     def test_Raspberry_Pi_VR220_out_shape(self):
+         self.assertEqual(Read_Raspberry_PiVR220.shape,(1920,1080,3))
+     # battery 
     
     # # memory module
     

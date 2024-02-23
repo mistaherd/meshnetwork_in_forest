@@ -4,32 +4,36 @@ import time
 import datetime
 import pandas as pd
 #pin 17
-class AS312
-def __init__(self):
-	self.pir_sensor=17
-	self.GPIO.setmode(GPIO.BCM)
+class AS312:
+	def __init__(self,pin_number:int):
+		self.pin_number=pin_number
+		self.GPIO=GPIO
+		self.GPIO.setmode(GPIO.BCM)
+		self.GPIO.setup(self.pin_number,GPIO.IN)
+		self.current_state=0
+		self.timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+	def read_state(self)->int:
+		self.current_state =self.GPIO.input(self.pin_number)
+		return self.current_state
 
-pir_sensor =17
+	def append_data(self):
+		data={
+			"Motion Dectected": [self.current_state],
+			"Timestamp": [self.timestamp]
+		}
+		df =pd.DataFrame(data)
+		df.to_csv('sensor_data.csv',mode='a' ,index=False,header=False)
 
+pir_sensor = AS312(17)
 
-GPIO.setmode(GPIO.BCM)
-
-GPIO.setup(pir_sensor, GPIO.IN)
-current_state = 0
 try:
 	time.sleep(0.1)
-	current_state =GPIO.input(pir_sensor)
-	timestamp=datetime.datetime.now()
-	timestamp=timestamp.strftime("%Y-%m-%d %H:%M:%S")
+	current_state =pir_sensor.read_state()
+	timestamp=pir_sensor.timestamp
+	print("GPIO pin %s is %s" % (pir_sensor.pin_number,current_state))
 	if current_state == 1:
-		print("GPIO pin %s is %s" % (pir_sensor,current_state))
-	print("GPIO pin %s is %s" % (pir_sensor,current_state))
-	data={
-		"Motion detected":[current_state],
-		"timestamp":[timestamp]
-	}
-	df =pd.DataFrame(data)
-	df.to_csv('sensor_data.csv',mode='a' ,index=False,header=False)
+		print("Motion dectected")
+	pir_sensor.append_data()
 except KeyboardInterrupt:
 	pass
 finally:
