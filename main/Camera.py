@@ -1,10 +1,15 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
-from picamera import PiCamera
+# from picamera import PiCamera
 from time import sleep
 from datetime import datetime
-
-timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-camera=PiCamera()
-camera.start_preview()
-sleep(2)
+class Raspberry_Pi_VR_220:
+    def __init__(self):
+        self.timestamp=datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+        self.fname ='/home/mistaherd/Documents/Github/meshnetwork_in_forest/{}.png'.format(timestamp)
+        self.camera=PiCamera()
+        self.timeamount=2
+    def take_pic(self):
+        self.camera.start_preview()
+        sleep(self.timeamount)
+        self.camera.capture(fname)
+        self.stop_preview()
