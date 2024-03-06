@@ -2,9 +2,10 @@
 import unittest
 # from protest import Read_DHT22,Read_MCP3008,Read_AS312,Read_Raspberry_PiVR220,Read_Memory_module
 from DHT22 import DHT22
-import board
+from AS312 import AS312
 dht22_instance=DHT22()
 hum,temp,ts=dht22_instance.Read_DHT22_data()
+AS312_instance=AS312(17)
 class test_project_code(unittest.TestCase):
     # DHT22
     def test_DHT22_output_type(self):
@@ -31,10 +32,10 @@ class test_project_code(unittest.TestCase):
     #     self.assertLessEqual(Read_MCP3008(2,34),5)
     #     self.assertGreaterEqual(Read_MCP3008(2,34),0)
      #AS312
-     def test_AS312_out_type(self):
-         self.assertIsInstance(Read_AS312,bool)
+    def test_AS312_out_type(self):
+         self.assertIsInstance(AS312_instance.read_state,bool)
      # Raspberry Pi VR 220 Camera
-     def test_Raspberry_Pi_VR220_out_shape(self):
+    def test_Raspberry_Pi_VR220_out_shape(self):
          self.assertEqual(Read_Raspberry_PiVR220.shape,(1920,1080,3))
      # battery 
     

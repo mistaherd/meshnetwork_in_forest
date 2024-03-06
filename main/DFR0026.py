@@ -24,4 +24,7 @@ class DFR0026:
     def __init__(self):
         self.adc_port=0
         self.fn_senor_data="sensor_data.csv"
-        self.DFR0553()
+        self.DFR0553 = DFR0553()
+    def save_light_data_to_csv(self):
+        self.DFR0553.read_channel(self.adc_port)
+        
