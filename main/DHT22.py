@@ -6,9 +6,11 @@ import pandas as pd
 class DHT22:
 ##Set DATA pin to pin 4
     def __init__(self):
+        """this will setup the  data pin  for  DHT2"""
         # self.dhtDevice =adafruit_dht.DHT22(board.D4)
         self.dhtDevice =adafruit_dht.DHT11(board.D4)
     def Read_DHT22_data(self)-> tuple[float,float,str]:
+        """This  will setup a DHT instance and  return the data from the sensor"""
         try:
             Humidity=self.dhtDevice.humidity
             Temperature=self.dhtDevice.temperature
@@ -18,7 +20,8 @@ class DHT22:
         except RuntimeError as e:
             print(f"Error reading sensor: {e}")
             return None, None
-    def write_to_csv(self,filename:str):
+    def write_to_csv(self,filename:str)-> int:
+        """This function writes data to a csv file."""
         temperature, humidity, timestamp = self.Read_DHT22_data()
         if temperature is not None and humidity is not None and timestamp is not None:
             data = [(temperature, humidity, timestamp)]
