@@ -16,18 +16,12 @@ class ADC:
                 return MCP3008(channel=self.channel,device=self.device,port=GPIO_port)
 class DFR0026:
         def __init__(self):
-                self.fname="sensor_data.csv"
-                self.adc=ADC()  
+                self.adc=ADC()
                 self.GPIO_port=9
-        def Store_light_data_tc_csv(self):
-                light_value=self.adc.Read_chanel(self.GPIO_port)
-                data=[(light_vaule,self.adc.timestamp)]
-                df = pd.DataFrame(data,columns=['Light(lux)','timestamp'])
-                if glob.glob(self.fname):
-                        df.to_csv(self.fname,mode='a' ,index=False,header=False)
-                else:
-                        df.to_csv(self.fname,mode='w' ,index=False)
+	def Read_data(self):
+		light_value=self.adc.Read_chanel(self.GPIO_port)
 
+ 
 
 
 
