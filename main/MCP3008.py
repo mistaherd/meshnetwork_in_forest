@@ -19,7 +19,7 @@ class DFR0026:
                 self.adc=ADC()
                 self.GPIO_port=9
 	def Read_data(self):
-		light_value=self.adc.Read_chanel(self.GPIO_port)
+                light_value=self.adc.Read_chanel(self.GPIO_port)
 
  
 
