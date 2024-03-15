@@ -16,4 +16,5 @@ class DFR0026():
     def read_voltage(self):
         return self.ads1115.read_voltage(self.adc_channel)
         #time.sleep(0.2) after read it
-        
+light_vaule=DFR0026()
+print(light_vaule.read_voltage())  

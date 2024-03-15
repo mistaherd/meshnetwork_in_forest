@@ -46,7 +46,3 @@ class Memory_tester():
 			
 		except subprocess.CalledProcessError as e:
 			raise ValueError(f"Error running script:{e.output}")
-# data=sensor_data()
-# data.write_append_csv()
-memory=Memory_tester()
-print(memory.check_memory())
