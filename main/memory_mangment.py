@@ -1,9 +1,9 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import pandas as pd
-# from DHT22 import DHT22
+from DHT22 import DHT22
 
-# from AS312 import AS312
-# from MCP3008 import DF0026
+from AS312 import AS312
+
 import pandas as pd
 import glob
 import re 
