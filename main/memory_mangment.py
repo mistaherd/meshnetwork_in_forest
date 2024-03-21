@@ -46,3 +46,9 @@ class Memory_tester():
 			
 		except subprocess.CalledProcessError as e:
 			raise ValueError(f"Error running script:{e.output}")
+	def error_check(self):
+		mem=self.check_memory()
+		max=32*10e9
+		if mem >= 0.2* max:
+			raise MemoryError("memory on pi is about to  used up")
+		
