@@ -5,11 +5,10 @@ from datetime import datetime
 class Raspberry_Pi_VR_220:
     def __init__(self):
         """setup an instan  for the  camera"""
-        self.timestamp=datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-        self.fname ='/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_Camera/{}.png'.format(self.timestamp)
+        self.timestamp=datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        self.fname ='/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/{}.png'.format(self.timestamp)
         self.camera=Picamera2()
         self.camera_config=self.camera.create_preview_configuration()
-
         self.timeamount=2
     def take_pic(self)-> str:
         """this will take  a picture from camera"""
@@ -19,5 +18,5 @@ class Raspberry_Pi_VR_220:
         sleep(self.timeamount)
         self.camera.capture_file(self.fname)
         return self.fname
-camera=Raspberry_Pi_VR_220()
-picture=camera.take_pic()
+if __name__=="__main__":
+    Raspberry_Pi_VR_220()

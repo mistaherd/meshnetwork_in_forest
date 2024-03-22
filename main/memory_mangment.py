@@ -1,20 +1,18 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import pandas as pd
 from DHT22 import DHT22
-
 from AS312 import AS312
-
-import pandas as pd
+from DFR0026 import DFR0026
 import glob
 import re 
 import subprocess
 class sensor_data:
 	def __init__(self):
 		self.dht22 = DHT22()
-		self.humidity,self.temperature,self.timestamp=self.dht22.Read_DHT22_data()
+		self.humidity,self.temperature=self.dht22.Read_DHT22_data()
 		self.AS312=AS312(17)
-		self.motion_dected =AS312.read_state()
-		self.DF0026 =DF0026()
+		self.motion_detected =AS312.read_state()
+		self.DF0026 =DFR0026()
 		self.light_value=self.DF0026.Read_data()
 		self.fname="sensor_data.csv"
 	def write_append_csv(self):
@@ -22,7 +20,7 @@ class sensor_data:
 			"Temperature(oc)" : self.Temperature,
 			"Humidity(%)" : self.humidity,
 			"Light(lux)" :self.light_value,
-			"Motion Dected": self.motion_dected
+			"Motion Detected": self.motion_detected
 			}
 		df = pd.DataFrame(data)
 		if glob.glob(self.fname):	
@@ -35,6 +33,7 @@ class Memory_tester():
 		self.regex ="\d{4}\.\[0-9]{1,3}[K,M,G]"
 		self.fname="../bash_scrpits/memorytest.sh" 
 		self.output_bash=subprocess.check_output(["bash",self.fname],universal_newlines=True)
+	
 	def check_memory(self):
 		try:
 			if re.search(self.regex,self.output_bash):
@@ -46,9 +45,13 @@ class Memory_tester():
 			
 		except subprocess.CalledProcessError as e:
 			raise ValueError(f"Error running script:{e.output}")
+	
 	def error_check(self):
 		mem=self.check_memory()
 		max=32*10e9
 		if mem >= 0.2* max:
 			raise MemoryError("memory on pi is about to  used up")
-		
+
+if __name__=="__main__":
+	sensor_data()
+	Memory_tester()
