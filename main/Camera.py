@@ -1,5 +1,5 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
-from picamera2 import Picamera2 ,Preview
+from picamera2 import Picamera2,Preview
 from time import sleep
 from datetime import datetime
 class Raspberry_Pi_VR_220:
@@ -7,7 +7,7 @@ class Raspberry_Pi_VR_220:
         """setup an instan  for the  camera"""
         self.timestamp=datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         self.fname ='/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/{}.png'.format(self.timestamp)
-        self.camera=Picamera2()
+        self.camera=PiCamera()
         self.camera_config=self.camera.create_preview_configuration()
         self.timeamount=2
     def take_pic(self)-> str:
