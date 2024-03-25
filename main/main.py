@@ -2,5 +2,5 @@
 from memory_mangment import sensor_data,Memory_tester
 from Camera_alt import camera
 sen_data=sensor_data()
-camera=camerea()
+camera=camera()
 sen_data.write_append_csv()

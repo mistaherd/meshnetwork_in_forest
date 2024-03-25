@@ -1,23 +1,26 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import pandas as pd
-from DHT22 import DHT22
+# from DHT22 import DHT22
 from AS312 import AS312
 from DFR0026 import DFR0026
 import glob
+import datetime
 import re 
 import subprocess
 class sensor_data:
 	def __init__(self):
-		self.dht22 = DHT22()
-		self.humidity,self.temperature=self.dht22.Read_DHT22_data()
-		self.AS312=AS312(17)
-		self.motion_detected =AS312.read_state()
+		# self.dht22 = DHT22()
+		# self.humidity,self.temperature=self.dht22.Read_DHT22_data()
+		self.humidity,self.temperature = 0,0
+		self.AS312=AS312()
+		self.timestamp=datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+		self.motion_detected =AS312.read_state(self.AS312)
 		self.DF0026 =DFR0026()
-		self.light_value=self.DF0026.Read_data()
+		self.light_value=self.DF0026.read_voltage()
 		self.fname="sensor_data.csv"
 	def write_append_csv(self):
 		data = { "Timestamp" : self.timestamp,
-			"Temperature(oc)" : self.Temperature,
+			"Temperature(oc)" : self.temperature,
 			"Humidity(%)" : self.humidity,
 			"Light(lux)" :self.light_value,
 			"Motion Detected": self.motion_detected

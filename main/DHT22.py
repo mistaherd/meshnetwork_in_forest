@@ -15,7 +15,7 @@ class DHT22:
         try:
             return self.temperature,self.humidity
         except RuntimeError as e:
-            print(f"Error reading sensor: {e}")
-            return None, None
+            # print(f"Error reading sensor: {e}")
+            return 0, 0
 if __name__ =="__main__":
     DHT22()
