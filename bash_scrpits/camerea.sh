@@ -1,5 +1,5 @@
 # !/bin/bash
-timestamp=$(date +"%Y-%m-%d_%H:%M:%S")
+timestamp=$(date +"%Y-%m-%d_%H_%M_%S")
 fname="camera_output_$timestamp.png"
 output_dir="Images_camera"
 if [ ! -d "$output_dir" ]; then
