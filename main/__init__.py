@@ -4,8 +4,7 @@ import unittest
 from DHT22 import DHT22
 from AS312 import AS312
 dht22_instance=DHT22()
-hum,temp,ts=dht22_instance.Read_DHT22_data()
-AS312_instance=AS312(17)
+AS312_instance=AS312()
 class test_project_code(unittest.TestCase):
     # DHT22
     def test_DHT22_output_type(self):

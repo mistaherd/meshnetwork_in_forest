@@ -7,8 +7,8 @@ class Raspberry_Pi_VR_220:
         """setup an instan  for the  camera"""
         self.timestamp=datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         self.fname ='/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/{}.png'.format(self.timestamp)
-        self.camera=PiCamera()
-        self.camera_config=self.camera.create_preview_configuration()
+        self.camera=Picamera2()
+        self.camera_config=self.camera.create_preview_configuration(main={"size":(800,600)})
         self.timeamount=2
     def take_pic(self)-> str:
         """this will take  a picture from camera"""
