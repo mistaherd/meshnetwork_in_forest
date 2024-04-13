@@ -1,6 +1,8 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import time
 import serial
+import pandas as pd
+import numpy as np
 import threading
 from memory_mangment import sensor_data
 class Transciever:
@@ -57,9 +59,10 @@ class Transciever:
 		"""receive a csv file"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
-			data=self.transceive.readline()
-			s=data.decode("utf-8")
-			print("message received:",s) 
+			data=self.transceive.readlines()
+			output=[data[i].decode()[:-2] for i in range(len(data))]
+			header=output[0]
+			df=pd.DataFrame(output[output!=output[0]:],columns=[header])
 
 	#Test png,jpg
 	def Transmit_test_png_file(self):
@@ -74,7 +77,6 @@ class Transciever:
 			data_read = self.transceive.readline()
 			s = data_read.decode("utf-8")
 			print("message received:", s)
-			with open(self.png_fname, 'wb') as f:
-				f.write(s)
+
 
 
