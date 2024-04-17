@@ -35,15 +35,16 @@ class Transciever:
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 			data_read=self.transceive.readline()
-			
-			
-
+			data="".join(chr(int(data.decode().split(",")[x],16)) for x in range(len(data.decode().split(","))))
+			print("message received:",data)
+			self.event.clear()
 	# Text file
 	def Tranmist_test_text_file(self):
 		"""Transmit a text file"""
 		with open(self.txt_fname,'r') as f:
-			data=f.read()
-		self.transceive.writeline(data.encode())
+			data=list(f.read())
+		data=",".join([bytes(data[i],'utf-8').hex().encode() for i in range(len(data))])
+		self.transceive.writeline(data)
 	def Recevive_test_text_file(self):
 		"""receive a text file"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
@@ -51,9 +52,9 @@ class Transciever:
 			data_read=self.transceive.read()
 			if not data_read:
 				break
-			s=data_read.decode("ascii")
-			print("message received:",s)
-	
+		output="".join(chr(int(data_read.decode().split(',')[x],16)) for x in range(len(data_read.decode().split(','))))	
+		print("message received:",output)
+		
 	#test csv file
 	def Tranmist_test_csv_file(self):
 		"""Transmit a csv file"""
