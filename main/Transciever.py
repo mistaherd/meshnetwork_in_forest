@@ -25,8 +25,11 @@ class Transciever:
 	# hello world
 	def Transmit_test_message(self):
 		"""send a simple hello world"""
-		self.transceive.write(bytes(self.message,'utf-8'))
+		self.message=list(self.message)
+		self.message=[bytes(self.message[i],'utf-8').hex() for i in range(len(self.message))]
+		self.transceive.write(",".join(self.message).encode())
 		time.sleep(0.2)
+		
 	def Receive_test_message(self):
 		"""receive a simple message"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
@@ -44,9 +47,11 @@ class Transciever:
 	def Recevive_test_text_file(self):
 		"""receive a text file"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
-		if self.event.is_set():
-			data_read=self.transceive.readline()
-			s=data_read.decode("utf-8")
+		while self.event.is_set():
+			data_read=self.transceive.read()
+			if not data_read:
+				break
+			s=data_read.decode("ascii")
 			print("message received:",s)
 	
 	#test csv file
@@ -74,9 +79,9 @@ class Transciever:
 		"""Receive a PNG file"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
-			data_read = self.transceive.readline()
-			s = data_read.decode("utf-8")
-			print("message received:", s)
+			data_read = self.transceive.readlines()
+			
+			
 
 
 
