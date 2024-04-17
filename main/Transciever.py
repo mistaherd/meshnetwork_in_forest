@@ -35,8 +35,8 @@ class Transciever:
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 			data_read=self.transceive.readline()
-			s=data_read.decode("utf-8")
-			print("message received:",s)
+			
+			
 
 	# Text file
 	def Tranmist_test_text_file(self):
