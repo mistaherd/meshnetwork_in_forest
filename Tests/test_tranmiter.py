@@ -4,7 +4,7 @@ import time
 import serial
 
 lora = serial.Serial(port='/dev/tty10',baudrate = 9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
-t_end= time.time()+3
+t_end= time.time()+6
 while time.time()<t_end:
     n = "hello world"
     b = bytes(n,'utf-8')#convert string into bytes
