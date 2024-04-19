@@ -3,9 +3,9 @@
 import time
 import serial
 
-lora = serial.Serial(port='/dev/tty10',baudrate = 9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
-t_end= time.time()+6
-while time.time()<t_end:
+lora = serial.Serial(port='/dev/ttyS0',baudrate = 9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
+
+while True:
     n = "hello world"
     b = bytes(n,'utf-8')#convert string into bytes
     s = lora.write(b)#send the data to other lora
