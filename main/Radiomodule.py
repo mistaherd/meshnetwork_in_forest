@@ -7,13 +7,13 @@ import threading
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self,data):
-		self.transceive=serial.Serial(port='/dev/tty50',
+		self.transceive=serial.Serial(port='/dev/ttyS0',
 								baudrate=9600,
 								parity=serial.Parity_NONE,
 								stopbits=serial.STOPBITS_ONE,
 								bytesize=serial.EIGHTBITS,
 								timeout=1)
-		self.message="Hello world! "
+		self.message="Hello world!"
 		self.data=data
 		self.chunk_size=240
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
@@ -30,23 +30,19 @@ class Transciever:
 	def Transmit_test_message(self):
 		"""send a simple hello world"""
 		self.data=self.message
-		# length=self.cal_bytes()
-		# self.message+str(length)
-		# self.message=list(self.message)
-
-		# self.message=[bytes(self.message[i],'utf-8').hex() for i in range(len(self.message))]
-		self.transceive.write(self.message.encode())	
+		
+		self.transceive.write(bytes(self.data,'utf-8'))
 		time.sleep(0.2)
 		# self.transceive.write(",".join(self.message).encode())
 		# time.sleep(0.2)
-		
+
 	def Receive_test_message(self):
 		"""receive a simple message"""
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 
-			data_read=self.transceive.read()
-			data="".join(chr(int(data.decode().split(",")[x],16)) for x in range(len(data.decode().split(","))))
+			data_read=self.transceive.readline()
+			data=data_read.decode("utf-8")
 			print("message received:",data)
 			self.event.clear()
 
@@ -58,8 +54,8 @@ class Transciever:
 			self.data=[bytes(self.data[i],'utf-8').hex().encode() for i in range(len(self.data))]
 		
 		length=self.cal_bytes()
-		# index_right=[((x+1)*(self.chunk_size))for x in range(len)]
-    # index_left=[x*(chunk_size) for x in range(number_of_loop)]
+		index_right=[((x+1)*(self.chunk_size))for x in range(len)]
+    	index_left=[x*(chunk_size) for x in range(number_of_loop)]
 		for x in range(length,self.chunk_size):
 			self.data[(x*self.chunk_size)+1:x*self.chunk_size]
 	
@@ -101,6 +97,7 @@ class Transciever:
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 			data_read = self.transceive.readlines()	
-
+if __name__=='__main__':
+	Transciever()
 
 
