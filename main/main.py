@@ -4,4 +4,5 @@
 # sen_data=sensor_data()
 # camera=camera()
 # sen_data.write_append_csv()
-from Radio
+from Radiomodule import Transciever as tr
+tr.transceive_test_message(False)

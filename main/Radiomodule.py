@@ -7,17 +7,13 @@ import threading
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self,data):
-		self.transceive=serial.Serial(port='/dev/ttyS0',
-								baudrate=9600,
-								parity=serial.Parity_NONE,
-								stopbits=serial.STOPBITS_ONE,
-								bytesize=serial.EIGHTBITS,
-								timeout=1)
+		self.transceive=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.Parity_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
 		self.message="Hello world!"
 		self.data=data
 		self.chunk_size=240
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
 		self.csv_fname=sensor_data().fname
+		self.reive_timelimit=time.time()+6
 		self.recived=self.transceive.in_waiting()
 		self.event=threading.Event()
 	def serial_interrupt(self):
@@ -27,25 +23,23 @@ class Transciever:
 		return len([bytes(self.data[i],'utf-8').hex() for i in range(len(self.data))])
 
 	# hello world
-	def Transmit_test_message(self):
-		"""send a simple hello world"""
-		self.data=self.message
-		
-		self.transceive.write(bytes(self.data,'utf-8'))
-		time.sleep(0.2)
-		# self.transceive.write(",".join(self.message).encode())
-		# time.sleep(0.2)
+	def transceive_test_message(self,transceive:bool):
+		"""send /recive a hello world"""
+		if transceive:
 
-	def Receive_test_message(self):
-		"""receive a simple message"""
-		self.transceive.attachInterrupt(self.serial_interrupt)
-		if self.event.is_set():
-
-			data_read=self.transceive.readline()
-			data=data_read.decode("utf-8")
-			print("message received:",data)
-			self.event.clear()
-
+			self.data=self.message
+			for i in range(8):
+				self.transceive.write(bytes(self.data,'utf-8'))
+				time.sleep(0.2)
+		if not transceive:
+			while time.time()< self.reive_timelimit:
+				self.transceive.attachInterrupt(self.serial_interrupt)
+				if self.event.is_set():
+					
+					data_read=self.transceive.readline()
+					data=data_read.decode("utf-8")
+					print("message received:",data)
+					self.event.clear()
 	# Text file
 	def Transmit_test_text_file(self):
 		"""Transmit a text file"""
