@@ -7,5 +7,6 @@ lora = serial.Serial(port='/dev/ttyS0',baudrate = 9600,parity=serial.PARITY_NONE
 while input("send messages")=='y':
     with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv', 'r') as f:
         data=f.readlines()
+    data=b''.join(data)
     lora.write(data)
     time.sleep(0.2)
