@@ -4,8 +4,16 @@ import serial
 import time
 import io
 lora = serial.Serial(port = '/dev/ttyS0' , baudrate = 9600, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE, bytesize = serial.EIGHTBITS, timeout = 1)
+t_end=time.time()+6
+while time.time()<t_end:
+    if lora.in_waiting:
+        
+        data = lora.readline()#read data from other lora
+        data=data.decode("utf-8")
+        # data=data.readlines()
+        output=[data[i].split(",") for i in range(len(data))]
+        # header=output[0]
+        # df=pd.DataFrame(output[output!=output[0]:],columns=[header])
+        # df.show()
+        print(output)
 
-while True:
-    data = lora.readlines()#read data from other lora
-    data =[data[i][:-2].decode().split(",") for i in range(len(data))]
-    print(data)
