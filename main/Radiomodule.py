@@ -41,30 +41,18 @@ class Transciever:
 					print("message received:",data)
 					self.event.clear()
 	# Text file
-	def Transmit_test_text_file(self):
-		"""Transmit a text file"""
-		with open(self.txt_fname,'r') as f:
-			self.data=list(f.read())
-			self.data=[bytes(self.data[i],'utf-8').hex().encode() for i in range(len(self.data))]
-		
-		length=self.cal_bytes()
-		index_right=[((x+1)*(self.chunk_size))for x in range(len)]
-    	index_left=[x*(chunk_size) for x in range(number_of_loop)]
-		for x in range(length,self.chunk_size):
-			self.data[(x*self.chunk_size)+1:x*self.chunk_size]
-	
-		# data=",".join([bytes(data[i],'utf-8').hex().encode() for i in range(len(data))])
-		# self.transceive.write(self.data.encode())
-	def Received_test_text_file(self):
-		"""receive a text file"""
-		self.transceive.attachInterrupt(self.serial_interrupt)
-		while self.event.is_set():
-			data_read=self.transceive.read()
-			if not data_read:
-				break
-		output="".join(chr(int(data_read.decode().split(',')[x],16)) for x in range(len(data_read.decode().split(','))))	
-		print("message received:",output)
-		
+	def transceive_test_txt_file(self,transceive:bool):
+		"""send /revive a txt file"""
+		if transceive:
+			with open(self.txt_fname,'r') as f:
+				self.data=f.read()
+			while time.time()< self.reive_timelimit:
+				self.transceive.write(bytes(data,'utf-8'))
+				time.sleep(0.2)
+		if not transceive:
+			data_read=self.transceive.readline()
+			data=data_read.decode("utf-8")
+			print(data)
 	#test csv file
 	def Tranmist_test_csv_file(self):
 		"""Transmit a csv file"""
