@@ -7,5 +7,5 @@ lora = serial.Serial(port = '/dev/ttyS0' , baudrate = 9600, parity = serial.PARI
 
 while True:
     data = lora.readlines()#read data from other lora
-    # data =[data[i][:-2].split(",") for i in range(len(data))]
+    data =[data[i][:-2].decode().split(",") for i in range(len(data))]
     print(data)
