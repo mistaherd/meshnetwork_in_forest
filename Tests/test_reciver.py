@@ -10,7 +10,8 @@ ouputed_data=[]
 while time.time()<t_end:
     if lora.in_waiting:
         data = lora.read()
+        if data 
         f=open('output.png','wb')
         f.write(base64.b64decode(data))
-        lora.write(bytes("awk",'utf-8'))
+        # lora.write(bytes("awk",'utf-8'))
 

@@ -12,6 +12,6 @@ while time.time()< t_end:
 
     lora.write(data)
     time.sleep(0.2)
-    if lora.in_waiting:
-        if lora.readline().decode("utf-8") =="awk":
-            break
+    # if lora.in_waiting:
+    #     if lora.readline().decode("utf-8") =="awk":
+    #         break
