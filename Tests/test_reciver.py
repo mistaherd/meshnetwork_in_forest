@@ -2,20 +2,20 @@
 #receiver
 import serial
 import time
-import io
+import pandas as pd
 lora = serial.Serial(port = '/dev/ttyS0' , baudrate = 9600, parity = serial.PARITY_NONE, stopbits = serial.STOPBITS_ONE, bytesize = serial.EIGHTBITS, timeout = 1)
 t_end=time.time()+6
 ouputed_data=[]
 while time.time()<t_end:
     if lora.in_waiting:
         lora.write(bytes("awk",'utf-8'))
-        data = lora.readline()#read data from other lora
-        data=data.decode("utf-8")
-        # data=data.readlines()
+        data = lora.readlines()#read data from other lora
         
-        # output=[data[i].split(",") for i in range(len(data))]
-        # header=output[0]
-        # df=pd.DataFrame(output[output!=output[0]:],columns=[header])
-        # df.show()
+        
+        
+        output=[data[i].decode().split(",") for i in range(len(data))]
+        header=output[0]
+        df=pd.DataFrame(output[output!=output[0]:],columns=[header])
+        df.style
         print(data,output)
 
