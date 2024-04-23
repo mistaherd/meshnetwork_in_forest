@@ -13,8 +13,8 @@ class Transciever:
 		self.chunk_size=240
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
 		self.csv_fname=sensor_data().fname
-		self.reive_timelimit=time.time()+6
-		self.recived=self.transceive.in_waiting()
+		self.timelimit=time.time()+6
+		self.recived=self.transceive.in_waiting
 		self.event=threading.Event()
 	def serial_interrupt(self):
 		if self.recived:
@@ -26,11 +26,10 @@ class Transciever:
 	def transceive_test_message(self,transceive:bool):
 		"""send /recive a hello world"""
 		if transceive:
-
-			self.data=self.message
-			for i in range(8):
-				self.transceive.write(bytes(self.data,'utf-8'))
-				time.sleep(0.2)
+			# self.message
+			
+			self.transceive.write(bytes(self.message,'utf-8'))
+			time.sleep(0.2)
 		if not transceive:
 			while time.time()< self.reive_timelimit:
 				self.transceive.attachInterrupt(self.serial_interrupt)
@@ -45,28 +44,33 @@ class Transciever:
 		"""send /revive a txt file"""
 		if transceive:
 			with open(self.txt_fname,'r') as f:
-				self.data=f.read()
-			while time.time()< self.reive_timelimit:
-				self.transceive.write(bytes(data,'utf-8'))
-				time.sleep(0.2)
+				data=f.read()
+			
+			self.transceive.write(bytes(data,'utf-8'))
+			time.sleep(0.2)
 		if not transceive:
-			data_read=self.transceive.readline()
-			data=data_read.decode("utf-8")
-			print(data)
+			while time.time()< self.timelimit:
+				self.transceive.attachInterrupt(self.serial_interrupt)
+				if self.event.is_set():
+					data_read=self.transceive.readline()
+					data=data_read.decode("utf-8")
+					print(data)
 	#test csv file
-	def Tranmist_test_csv_file(self):
-		"""Transmit a csv file"""
-		with open(self.csv_fname,'rb') as f:
-			data= f.read()
-		self.transceive.write(data)
-	def Recevive_test_csv_file(self):
-		"""receive a csv file"""
-		self.transceive.attachInterrupt(self.serial_interrupt)
-		if self.event.is_set():
-			data=self.transceive.readlines()
-			output=[data[i].decode()[:-2] for i in range(len(data))]
-			header=output[0]
-			df=pd.DataFrame(output[output!=output[0]:],columns=[header])
+	def transceive_test_csv(self,transceive:bool)
+	if transceive:
+		with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv','r') as f:
+			data=f.readlines()
+		data=''.join(data)
+		lora.write(bytes(data,'utf-8'))
+    	time.sleep(0.2)
+	if not transceive:
+		while time.time() <self.timelimit:
+			self.transceive.attachInterrupt(self.serial_interrupt)
+			if self.event.is_set():
+				data=self.transceive.readlines()
+				output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
+        		df=pd.DataFrame(output)
+        		print(df)
 
 	#Test png,jpg
 	def Transmit_test_png_file(self):
