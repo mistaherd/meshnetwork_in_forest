@@ -13,9 +13,9 @@ while time.time()<t_end:
         
         
         
-        output=[data[i].decode().split(",") for i in range(len(data))]
+        output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
         header=output[0]
         df=pd.DataFrame(output[output!=output[0]:],columns=[header])
-        df.style
-        print(data,output)
+        
+        print(df)
 
