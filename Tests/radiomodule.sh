@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#only use this  for  transcive module
 # Function to check if the script is run with root privileges
 is_root() {
   if [[ $EUID -ne 0 ]]; then
@@ -17,6 +17,7 @@ sudo chmod g+rw /dev/ttyS0
 
 # - Option 2: Grant read/write access to all users (less secure, use with caution)
 # sudo chmod 666 /dev/ttyS0  # Not recommended for security reasons
+
 
 if [[ "$1" == "1" ]]; then
   python test_tranmiter.py
