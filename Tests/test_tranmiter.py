@@ -10,10 +10,11 @@ with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/
         data=f.read()+b"\n EOF \n"
         data=[data[i:i+length] for i in range(0,len(data),length)]
 
+def write_img(img_list:list):
+    i=0
+    while not i==len(img_list):
+        lora.write(data[i])
+        time.sleep(0.2)
+        i+=1
 while time.time()< t_end:
-
-    lora.write(data[0])
-    # time.sleep(0.2)
-    if lora.in_waiting:
-        if lora.readline().decode("utf-8") =="awk":
-            break
+    write_img(data)
