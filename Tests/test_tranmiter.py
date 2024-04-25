@@ -11,10 +11,9 @@ with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/
         data=[data[i:i+length] for i in range(0,len(data),length)]
 
 def write_img(img_list:list):
-    i=0
-    while not i==len(img_list):
-        lora.write(data[i])
+    for i in range(len(img_list)):
+        lora.write(img_list[i])
         time.sleep(0.2)
-        i+=1
+
 while time.time()< t_end:
     write_img(data)
