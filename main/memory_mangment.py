@@ -18,6 +18,7 @@ class sensor_data:
 		self.DF0026 =DFR0026()
 		self.light_value=self.DF0026.read_voltage()
 		self.fname="sensor_data.csv"
+
 	def write_append_csv(self):
 		data = { "Timestamp" : self.timestamp,
 			"Temperature(oc)" : self.temperature,
@@ -25,6 +26,7 @@ class sensor_data:
 			"Light(lux)" :self.light_value,
 			"Motion Detected": self.motion_detected
 			}
+		print("this csv contains the following data:%s"%data)
 		df = pd.DataFrame(data)
 		if glob.glob(self.fname):	
 			df.to_csv(self.fname,mode='a' ,index=False,header=False)
