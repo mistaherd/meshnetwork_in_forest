@@ -56,7 +56,7 @@ class Memory_tester():
 		max=32*10e9
 		if mem >= 0.2* max:
 			raise MemoryError("memory on pi is about to  used up")
-sensor_data().
+
 if __name__=="__main__":
 	sensor_data()
 	Memory_tester()
