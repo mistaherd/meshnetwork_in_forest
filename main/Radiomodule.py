@@ -29,7 +29,7 @@ class Transciever:
 		"""send /recive a hello world"""
 		if transceive:
 			# self.message
-			
+			#transmite
 			self.transceive.write(bytes(self.message,'utf-8'))
 			time.sleep(0.2)
 		if not transceive:
@@ -85,11 +85,22 @@ class Transciever:
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 			data_read = self.transceive.readlines()	
-	def transive_all(self):
+	def transive_choice(self):
+		""" run this for demo"""
 		if not self.event.is_set():
 			#transmit something
-			subprocess.check_output(["bash",self.mesh_fname,"-t",""])
+			self.user_message=int(input("enter what is transmited:\n\r 1:hello world \n\r 2:text file \n\r 3:csv file \n\r 4:PNG\n"))
+			self.transmit=True
+			choice ={
+				1: lambda :self.transceive_test_message(self.transmit),
+				2:lambda :self.transceive_test_txt_file(self.transmite)
+				3: lambda :transceive_test_csv(self.transceive)
+				4:lambda :Transmit_test_png_file()
+			}
+			choice[self.user_message]()
 		#revived somthing
+		self.transmit=False
+		
 if __name__=='__main__':
 	Transciever()
 
