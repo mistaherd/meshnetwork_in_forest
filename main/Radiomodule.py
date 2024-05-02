@@ -83,10 +83,10 @@ class Transciever:
 			for i in range(0,len(data),self.chunk_size)
 				self.transceive.write(data[i:i+self.chunk_size])
 		if not transceive:
-			output=[]
-			self.transceive.attachInterrupt(self.serial_interrupt)
-			if self.event.is_set():
-				while(self.transceive.read() != b'')
+			while time.time() <self.timelimit:
+				output=[]
+				self.transceive.attachInterrupt(self.serial_interrupt)
+				if self.event.is_set():
 					data_read = self.transceive.read()
 					output.append(data_read)	
 	def transive_choice(self):
