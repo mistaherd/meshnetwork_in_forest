@@ -75,16 +75,20 @@ class Transciever:
 					print(df)
 
 	#Test png,jpg
-	def Transmit_test_png_file(self):
+	def Transcevie_png_file(self):
 		"""Transmit a PNG file"""
-		with open(self.png_fname, 'rb') as f:
-			data = f.read()
-		self.transceive.write(data)
-	def Receive_test_png_file(self):
-		"""Receive a PNG file"""
-		self.transceive.attachInterrupt(self.serial_interrupt)
-		if self.event.is_set():
-			data_read = self.transceive.readlines()	
+		if transceive:
+			with open(self.png_fname, 'rb') as f:
+				data = f.read()
+			for i in range(0,len(data),self.chunk_size)
+				self.transceive.write(data[i:i+self.chunk_size])
+		if not transceive:
+			output=[]
+			self.transceive.attachInterrupt(self.serial_interrupt)
+			if self.event.is_set():
+				while(self.transceive.read() != b'')
+					data_read = self.transceive.read()
+					output.append(data_read)	
 	def transive_choice(self):
 		""" run this for demo"""
 		if not self.event.is_set():
@@ -94,13 +98,13 @@ class Transciever:
 			choice ={
 				1: lambda :self.transceive_test_message(self.transmit),
 				2:lambda :self.transceive_test_txt_file(self.transmite)
-				3: lambda :transceive_test_csv(self.transceive)
-				4:lambda :Transmit_test_png_file()
+				3: lambda :transceive_test_csv(self.transmit)
+				4:lambda :Transcevie_png_file(self.transmit)
 			}
 			choice[self.user_message]()
 		#revived somthing
 		self.transmit=False
-		
+		choice[self.user_message]()
 if __name__=='__main__':
 	Transciever()
 
