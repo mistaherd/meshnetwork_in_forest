@@ -4,6 +4,7 @@ import serial
 import pandas as pd
 import numpy as np
 import threading
+import subprocess
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self,data):
@@ -11,6 +12,7 @@ class Transciever:
 		self.message="Hello world!"
 		self.data=data
 		self.chunk_size=240
+		self.mesh_fname="../bash_scrpits/mesh.sh"
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
 		self.csv_fname=sensor_data().fname
 		self.timelimit=time.time()+6
@@ -85,8 +87,8 @@ class Transciever:
 			data_read = self.transceive.readlines()	
 	def transive_all(self):
 		if not self.event.is_set():
-			#transmited somthing 
-
+			#transmit something
+			subprocess.check_output(["bash",self.mesh_fname,"-t",""])
 		#revived somthing
 if __name__=='__main__':
 	Transciever()
