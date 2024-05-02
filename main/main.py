@@ -10,6 +10,6 @@ mem_obj=Memory_tester()
 
 sen_data.write_append_csv()
 camera_obj.run
+mem_obj.error_check()
 #Then we transmit these
 
-mem_obj.error_check()

@@ -57,20 +57,20 @@ class Transciever:
 					print(data)
 	#test csv file
 	def transceive_test_csv(self,transceive:bool)
-	if transceive:
-		with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv','r') as f:
-			data=f.readlines()
-		data=''.join(data)
-		lora.write(bytes(data,'utf-8'))
-    	time.sleep(0.2)
-	if not transceive:
-		while time.time() <self.timelimit:
-			self.transceive.attachInterrupt(self.serial_interrupt)
-			if self.event.is_set():
-				data=self.transceive.readlines()
-				output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
-        		df=pd.DataFrame(output)
-        		print(df)
+		if transceive:
+			with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv','r') as f:
+				data=f.readlines()
+			data=''.join(data)
+			lora.write(bytes(data,'utf-8'))
+			time.sleep(0.2)
+		if not transceive:
+			while time.time() <self.timelimit:
+				self.transceive.attachInterrupt(self.serial_interrupt)
+				if self.event.is_set():
+					data=self.transceive.readlines()
+					output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
+					df=pd.DataFrame(output)
+					print(df)
 
 	#Test png,jpg
 	def Transmit_test_png_file(self):
@@ -83,6 +83,11 @@ class Transciever:
 		self.transceive.attachInterrupt(self.serial_interrupt)
 		if self.event.is_set():
 			data_read = self.transceive.readlines()	
+	def transive_all(self):
+		if not self.event.is_set():
+			#transmited somthing 
+
+		#revived somthing
 if __name__=='__main__':
 	Transciever()
 

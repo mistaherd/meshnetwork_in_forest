@@ -1,6 +1,6 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import pandas as pd
-# from DHT22 import DHT22
+from DHT22 import DHT22
 from AS312 import AS312
 from DFR0026 import DFR0026
 import glob
@@ -9,8 +9,8 @@ import re
 import subprocess
 class sensor_data:
 	def __init__(self):
-		# self.dht22 = DHT22()
-		# self.humidity,self.temperature=self.dht22.Read_DHT22_data()
+		self.dht22 = DHT22()
+		self.humidity,self.temperature=self.dht22.Read_DHT22_data()
 		self.humidity,self.temperature = 0,0
 		self.AS312=AS312()
 		self.timestamp=datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -56,7 +56,7 @@ class Memory_tester():
 		max=32*10e9
 		if mem >= 0.2* max:
 			raise MemoryError("memory on pi is about to  used up")
-
+sensor_data().
 if __name__=="__main__":
 	sensor_data()
 	Memory_tester()
