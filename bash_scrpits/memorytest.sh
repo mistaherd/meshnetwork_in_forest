@@ -1,6 +1,6 @@
-# !/bin/bash
+#!/bin/bash
 
-dir_name=$1
+dir_name=$(pwd)
 
 size=$(du -sh "$dir_name" | cut -f1)
 
