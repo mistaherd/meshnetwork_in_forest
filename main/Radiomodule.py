@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import threading
 import subprocess
+import base64
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self):
@@ -17,6 +18,7 @@ class Transciever:
 		self.timelimit=time.time()+6
 		self.recived=self.transceive.in_waiting
 		self.event=threading.Event()
+		#self.transvvie_socekt
 	def serial_interrupt(self):
 		if self.recived:
 			self.event.set()
@@ -35,7 +37,6 @@ class Transciever:
 			while time.time()< self.reive_timelimit:
 				self.transceive.attachInterrupt(self.serial_interrupt)
 				if self.event.is_set():
-					
 					data_read=self.transceive.readline()
 					data=data_read.decode("utf-8")
 					print("message received:",data)
@@ -46,7 +47,7 @@ class Transciever:
 		if transceive:
 			with open(self.txt_fname,'r') as f:
 				data=f.read()
-			
+
 			self.transceive.write(bytes(data,'utf-8'))
 			time.sleep(0.2)
 		if not transceive:
@@ -79,15 +80,21 @@ class Transciever:
 		if transceive:
 			with open(self.png_fname, 'rb') as f:
 				data = f.read()
-			for i in range(0,len(data),self.chunk_size):
-				self.transceive.write(data[i:i+self.chunk_size])
+			chunks=[data[i:i+self.chunk_size] for i in range(0,len(data),self.chunk_size)]
+			for chunk in range(len(chunks)):
+				encoded_chunk=base64.b64encode(chunk)
+				self.transceive.write(encoded_chunk)
 		if not transceive:
 			output=[]
 			self.transceive.attachInterrupt(self.serial_interrupt)
 			if self.event.is_set():
 				while(self.transceive.read() != b''):
 					data_read = self.transceive.read()
-					output.append(data_read)	
+					print("bytes reviced %a"%data_read)
+					output.append(base64.b64decode(data_read))
+				output=b"".join(output)
+				with open("recived_img.png", 'wb') as f:
+        				f.write(output)
 	def transive_choice(self,arugement):
 		""" run this for demo"""
 		if not self.event.is_set():

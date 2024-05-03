@@ -23,8 +23,8 @@ while [ $current_hour -ne "12" ]&&[ $current_hour -ne "9" ]; do
     # python /home/mistaherd/Documents/Github/meshnetwork_in_forest/main/main.py
     python main/main.py
     echo "file ran successfully"
-    sleep 3600
   fi
+	sleep 20
   # break #becuase everyone needs a break sometime 
 done
 

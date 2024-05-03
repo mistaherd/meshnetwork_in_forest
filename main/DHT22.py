@@ -18,4 +18,4 @@ class DHT22:
             # print(f"Error reading sensor: {e}")
             return 0, 0
 if __name__ =="__main__":
-    DHT22().Read_DHT22_data()
+    DHT22()
