@@ -13,11 +13,13 @@ sudo chmod g+rw /dev/ttyS0
 current_time=$(date +%H:%M)
 current_hour=$(echo $current_time | cut -d: -f 1)
 previous_hour=$((current_hour-1))
-while [ $current_hour -eq "12" ]&&[$current_hour != "9" ]; do
+
+while [ $current_hour -ne "12" ]&&[ $current_hour -ne "9" ]; do
   if [ $current_hour -eq $((previous_hour+1)) ]; then
-     python /home/mistaherd/Documents/Github/meshnetwork_in_forest/main/main.py
-    #python main/main.py
+    # python /home/mistaherd/Documents/Github/meshnetwork_in_forest/main/main.py
+    python main/main.py
     echo "file ran successfully"
+    sleep 3600
   fi
   # break #becuase everyone needs a break sometime 
 done
