@@ -86,7 +86,7 @@ class Transciever:
 			output=[]
 			self.transceive.attachInterrupt(self.serial_interrupt)
 			if self.event.is_set():
-				while(self.transceive.read() != b'')
+				while(self.transceive.read() != b''):
 					data_read = self.transceive.read()
 					output.append(data_read)	
 	def transive_choice(self):
