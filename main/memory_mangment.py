@@ -47,7 +47,6 @@ class Memory_tester():
 					return float(value)*self.units[unit]
 				except KeyError:
 					raise ValueError(f"unknown unit: {unit}")
-			
 		except subprocess.CalledProcessError as e:
 			raise ValueError(f"Error running script:{e.output}")
 	

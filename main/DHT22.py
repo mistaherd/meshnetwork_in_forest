@@ -1,5 +1,5 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
-import adafruit_dht 
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11/site-packages
+import adafruit_dht
 import board
 import pandas as pd
 class DHT22:
@@ -18,4 +18,4 @@ class DHT22:
             # print(f"Error reading sensor: {e}")
             return 0, 0
 if __name__ =="__main__":
-    DHT22()
+    DHT22().Read_DHT22_data()

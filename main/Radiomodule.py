@@ -58,7 +58,7 @@ class Transciever:
 					data=data_read.decode("utf-8")
 					print(data)
 	#test csv file
-	def transceive_test_csv(self,transceive:bool)
+	def transceive_test_csv(self,transceive:bool):
 		if transceive:
 			with open('/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv','r') as f:
 				data=f.readlines()
@@ -80,7 +80,7 @@ class Transciever:
 		if transceive:
 			with open(self.png_fname, 'rb') as f:
 				data = f.read()
-			for i in range(0,len(data),self.chunk_size)
+			for i in range(0,len(data),self.chunk_size):
 				self.transceive.write(data[i:i+self.chunk_size])
 		if not transceive:
 			while time.time() <self.timelimit:
@@ -97,9 +97,9 @@ class Transciever:
 			self.transmit=True
 			choice ={
 				1: lambda :self.transceive_test_message(self.transmit),
-				2:lambda :self.transceive_test_txt_file(self.transmite)
-				3: lambda :transceive_test_csv(self.transmit)
-				4:lambda :Transcevie_png_file(self.transmit)
+				2:lambda :self.transceive_test_txt_file(self.transmite),
+				3: lambda :transceive_test_csv(self.transmit),
+				4:lambda :Transcevie_png_file(self.transmit),
 			}
 			choice[self.user_message]()
 		#revived somthing
