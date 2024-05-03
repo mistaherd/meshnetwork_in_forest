@@ -7,10 +7,9 @@ import threading
 import subprocess
 from memory_mangment import sensor_data
 class Transciever:
-	def __init__(self,data):
-		self.transceive=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.Parity_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
+	def __init__(self):
+		self.transceive=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
 		self.message="Hello world!"
-		self.data=data
 		self.chunk_size=240
 		self.mesh_fname="../bash_scrpits/mesh.sh"
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
@@ -89,11 +88,10 @@ class Transciever:
 				while(self.transceive.read() != b''):
 					data_read = self.transceive.read()
 					output.append(data_read)	
-	def transive_choice(self):
+	def transive_choice(self,arugement):
 		""" run this for demo"""
 		if not self.event.is_set():
 			#transmit something
-			self.user_message=int(input("enter what is transmited:\n\r 1:hello world \n\r 2:text file \n\r 3:csv file \n\r 4:PNG\n"))
 			self.transmit=True
 			choice ={
 				1: lambda :self.transceive_test_message(self.transmit),
@@ -101,7 +99,7 @@ class Transciever:
 				3: lambda :transceive_test_csv(self.transmit),
 				4:lambda :Transcevie_png_file(self.transmit),
 			}
-			choice[self.user_message]()
+			choice[arugement]()
 		#revived somthing
 		self.transmit=False
 		choice[self.user_message]()

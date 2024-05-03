@@ -5,7 +5,11 @@ is_root() {
     exit 1
   fi
 }
-
+if [ $1 -eq 0 ]; then
+	echo "Error no arugments provided"
+	echo "enter what is transmited:\n\r 1:hello world \n\r 2:text file \n\r 3:csv file \n\r 4:PNG\n"
+	exit 1
+fi
 # Call the is_root function to verify permissions
 is_root
 sudo chmod g+rw /dev/ttyS0
