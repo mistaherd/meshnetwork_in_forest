@@ -1,6 +1,6 @@
-# !/bin/bash
+#!/bin/bash
 is_root() {
-  if [[ $EUID -ne 0 ]]; then
+  if [[$EUID -ne 0 ]]; then
     echo "This script requires root privileges. Please run with sudo."
     exit 1
   fi
