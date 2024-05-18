@@ -101,10 +101,10 @@ class Transciever:
 			#transmit something
 			self.transmit=True
 			choice ={
-				1: lambda :self.transceive_test_message(self.transmit),
+				1:lambda :self.transceive_test_message(self.transmit),
 				2:lambda :self.transceive_test_txt_file(self.transmite),
-				3: lambda :transceive_test_csv(self.transmit),
-				4:lambda :Transcevie_png_file(self.transmit),
+				3:lambda :self.transceive_test_csv(self.transmit),
+				4:lambda :self.Transcevie_png_file(self.transmit),
 			}
 			choice[arugement]()
 		#revived somthing
