@@ -68,11 +68,11 @@ class test_project_code(unittest.TestCase):
     def test_transceiver_test_txt_file(self):
         txt_file=Transciever_instance.txt_fname
         with open(txt_file,'r') as f:
-            expeted_txt=f.read()
+            expected_txt=f.read()
         Transciever_instance.transceive_test_txt_file(True)
         received_txt_file=Transciever_instance.transceive_test_txt_file(False)
-        self.assertEqual(expeted_txt,received_txt_file)
-    
+        self.assertEqual(expected_txt,received_txt_file)
+    def test_
 if __name__ == '__main__':
     unittest.main()
 
