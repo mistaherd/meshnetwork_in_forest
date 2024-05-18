@@ -12,12 +12,8 @@ is_root() {
 is_root
 
 # Set appropriate permissions for /dev/ttyS0 (consider group or user access)
-# - Option 1: Grant read/write access to a specific user group (recommended)
+
 sudo chmod g+rw /dev/ttyS0
-
-# - Option 2: Grant read/write access to all users (less secure, use with caution)
-# sudo chmod 666 /dev/ttyS0  # Not recommended for security reasons
-
 
 if [[ "$1" == "1" ]]; then
   python test_tranmiter.py

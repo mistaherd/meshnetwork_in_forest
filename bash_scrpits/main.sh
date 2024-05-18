@@ -5,9 +5,9 @@ is_root() {
     exit 1
   fi
 }
-if [ $1 -eq 0 ]; then
+if [[ $1 -eq 0 ]]; then
 	echo "Error no arugments provided"
-	echo "enter what is transmited:\n\r 1:hello world \n\r 2:text file \n\r 3:csv file \n\r 4:PNG\n"
+	echo -e "enter what is transmited:\n\r1:hello world \n\r2:text file \n\r3:csv file\n\r4:PNG\n\r"
 	exit 1
 fi
 # Call the is_root function to verify permissions
@@ -17,14 +17,12 @@ sudo chmod g+rw /dev/ttyS0
 current_time=$(date +%H:%M)
 current_hour=$(echo $current_time | cut -d: -f 1)
 previous_hour=$((current_hour-1))
-
-while [ $current_hour -ne "12" ]&&[ $current_hour -ne "9" ]; do
-  if [ $current_hour -eq $((previous_hour+1)) ]; then
-    # python /home/mistaherd/Documents/Github/meshnetwork_in_forest/main/main.py
-    python main/main.py
+while [ $current_time != "12:00" ]&&[ $current_time != "9:00" ]; do
+  if [ $current_time == "$current_hour:00" ]; then
+    # python Documents/Github/meshnetwork_in_forest/main/main.py $1
+    python main/main.py $1
     echo "file ran successfully"
   fi
-	sleep 20
-  # break #becuase everyone needs a break sometime 
+  break #becuase everyone needs a break sometime 
 done
 
