@@ -1,6 +1,6 @@
 #!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
 import unittest
-from memory_mangment import sensor_data
+from memory_mangment import sensor_data,Memory_tester
 from DHT22 import DHT22
 from AS312 import AS312
 from DFR0026 import DFR0026
@@ -9,7 +9,7 @@ dht22_instance=DHT22()
 AS312_instance=AS312()
 temp=sensor_data_object.temperature()
 hum=sensor_data_object.humidity()
-
+memorytest_obj=Memory_tester
 
 class test_project_code(unittest.TestCase):
     # DHT22
@@ -42,17 +42,12 @@ class test_project_code(unittest.TestCase):
      # Raspberry Pi VR 220 Camera
     def test_Raspberry_Pi_VR220_out_shape(self):
          self.assertEqual(Read_Raspberry_PiVR220.shape,(1920,1080,3))
-     # battery 
     
-    # # memory module
     
-    # def Test_memory_module_turbo_1GB_size(self):
-    #     #testing  turbo 1GB
-    #     self.assertLessEqual(Read_Memory_module,1e9)
-    #     self.assertGreaterEqual(Read_Memory_module,0)
-    # def Test_memory_silicon_power_32GB(self):
-    #     self.assertLessEqual(Read_Memory_module,32e9)
-    #     self.assertGreaterEqual(Read_Memory_module,0)
+    # memory module
+    def Test_memory_silicon_power_32GB(self):
+        self.assertLessEqual(memorytest_obj.check_memory,32e9)
+        self.assertGreaterEqual(memorytest_obj.check_memory,0)
     # radio module
 if __name__ == '__main__':
     unittest.main()
