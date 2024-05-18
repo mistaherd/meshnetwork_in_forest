@@ -9,16 +9,14 @@ import base64
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self):
-		self.transceive=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
+		self.transceive_ser=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
 		self.message="Hello world!"
 		self.chunk_size=240
-		self.mesh_fname="../bash_scrpits/mesh.sh"
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
 		self.csv_fname=sensor_data().fname
 		self.timelimit=time.time()+6
-		self.recived=self.transceive.in_waiting
+		self.recived=self.transceive_ser.in_waiting
 		self.event=threading.Event()
-		#self.transvvie_socekt
 	def serial_interrupt(self):
 		if self.recived:
 			self.event.set()
@@ -31,13 +29,13 @@ class Transciever:
 		if transceive:
 			# self.message
 			#transmite
-			self.transceive.write(bytes(self.message,'utf-8'))
+			self.transceive_ser.write(bytes(self.message,'utf-8'))
 			time.sleep(0.2)
 		if not transceive:
 			while time.time()< self.reive_timelimit:
-				self.transceive.attachInterrupt(self.serial_interrupt)
+				self.transceive_ser.attachInterrupt(self.serial_interrupt)
 				if self.event.is_set():
-					data_read=self.transceive.readline()
+					data_read=self.transceive_ser.readline()
 					data=data_read.decode("utf-8")
 					print("message received:",data)
 					self.event.clear()
@@ -48,15 +46,17 @@ class Transciever:
 			with open(self.txt_fname,'r') as f:
 				data=f.read()
 
-			self.transceive.write(bytes(data,'utf-8'))
+			self.transceive_ser.write(bytes(data,'utf-8'))
 			time.sleep(0.2)
 		if not transceive:
 			while time.time()< self.timelimit:
-				self.transceive.attachInterrupt(self.serial_interrupt)
+				self.transceive_ser.attachInterrupt(self.serial_interrupt)
 				if self.event.is_set():
-					data_read=self.transceive.readline()
+					data_read=self.transceive_ser.readline()
 					data=data_read.decode("utf-8")
-					print(data)
+					print("message received:",data)
+					self.event.clear()
+					return data
 	#test csv file
 	def transceive_test_csv(self,transceive:bool):
 		if transceive:
@@ -67,12 +67,14 @@ class Transciever:
 			time.sleep(0.2)
 		if not transceive:
 			while time.time() <self.timelimit:
-				self.transceive.attachInterrupt(self.serial_interrupt)
+				self.transceive_ser.attachInterrupt(self.serial_interrupt)
 				if self.event.is_set():
-					data=self.transceive.readlines()
+					data=self.transceive_ser.readlines()
 					output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
 					df=pd.DataFrame(output)
 					print(df)
+					self.event.clear()
+	#test png,jpg
 
 	#Test png,jpg
 	def Transcevie_png_file(self):
@@ -83,13 +85,13 @@ class Transciever:
 			chunks=[data[i:i+self.chunk_size] for i in range(0,len(data),self.chunk_size)]
 			for chunk in range(len(chunks)):
 				encoded_chunk=base64.b64encode(chunk)
-				self.transceive.write(encoded_chunk)
+				self.transceive_ser.write(encoded_chunk)
 		if not transceive:
 			output=[]
-			self.transceive.attachInterrupt(self.serial_interrupt)
+			self.transceive_ser.attachInterrupt(self.serial_interrupt)
 			if self.event.is_set():
-				while(self.transceive.read() != b''):
-					data_read = self.transceive.read()
+				while(self.transceive_ser.read() != b''):
+					data_read = self.transceive_ser.read()
 					print("bytes reviced %a"%data_read)
 					output.append(base64.b64decode(data_read))
 				output=b"".join(output)
@@ -104,13 +106,10 @@ class Transciever:
 				1:lambda :self.transceive_test_message(self.transmit),
 				2:lambda :self.transceive_test_txt_file(self.transmite),
 				3:lambda :self.transceive_test_csv(self.transmit),
-				4:lambda :self.Transcevie_png_file(self.transmit),
-			}
+				4:lambda :self.Transcevie_png_file(self.transmit)}
 			choice[arugement]()
 		#revived somthing
 		self.transmit=False
 		choice[self.user_message]()
 if __name__=='__main__':
 	Transciever()
-
-

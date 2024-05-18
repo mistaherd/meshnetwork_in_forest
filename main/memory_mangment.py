@@ -17,7 +17,7 @@ class sensor_data:
 		self.motion_detected =AS312.read_state(self.AS312)
 		self.DF0026 =DFR0026()
 		self.light_value=self.DF0026.read_voltage()
-		self.fname="sensor_data.csv"
+		self.fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/main/sensor_data.csv"
 
 	def write_append_csv(self):
 		data = { "Timestamp" : self.timestamp,
