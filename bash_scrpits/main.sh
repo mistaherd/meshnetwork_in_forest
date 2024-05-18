@@ -25,4 +25,3 @@ while [ $current_time != "12:00" ]&&[ $current_time != "9:00" ]; do
   fi
   break #becuase everyone needs a break sometime 
 done
-
