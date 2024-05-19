@@ -8,6 +8,7 @@ from DFR0026 import DFR0026
 from Radiomodule import Transciever
 from Camera_alt import camera
 import subprocess
+import pandas as pd
 sensor_data_object=sensor_data()
 dht22_instance=DHT22()
 AS312_instance=AS312()
@@ -45,10 +46,10 @@ class test_project_code(unittest.TestCase):
         self.assertGreaterEqual(DFR0026().read_voltage(),0)
      #AS312
     def test_AS312_out_type(self):
-         self.assertIsInstance(AS312_instance.read_state,bool)
+        self.assertIsInstance(AS312_instance.read_state,bool)
      # Raspberry Pi VR 220 Camera
     def test_Raspberry_Pi_VR220_out_shape(self):
-         self.assertEqual(camera_obj.run.returncode, 0)
+        self.assertEqual(camera_obj.run.returncode, 0)
     
     
     # memory module
@@ -66,14 +67,19 @@ class test_project_code(unittest.TestCase):
         received_message=Transciever_instance.transceive_test_message(False)
         self.assertEqual(message,received_message)
     def test_transceiver_test_txt_file(self):
-        txt_file=Transciever_instance.txt_fname
+        txt_fname=Transciever_instance.txt_fname
         with open(txt_file,'r') as f:
             expected_txt=f.read()
         Transciever_instance.transceive_test_txt_file(True)
         received_txt_file=Transciever_instance.transceive_test_txt_file(False)
         self.assertEqual(expected_txt,received_txt_file)
-    def test_transciver_test_csv_file(self):
-	
+    def test_transciver_test_csv(self):
+        csv_fname=Transciever_instance.csv_fname
+        expected_df=pd.read_csv(csv_fname)
+        reviced_df=Transciever_instance.transceive_test_csv(False)
+        self.assertEqual(expected_df,reviced_df)
+    def test_trancsive_img_file(self):
+        img_fname=Transciever_instance.png_fname
 if __name__ == '__main__':
     unittest.main()
 

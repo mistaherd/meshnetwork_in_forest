@@ -13,6 +13,7 @@ class Transciever:
 		self.message="Hello world!"
 		self.chunk_size=240
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
+		self.png_fname=""
 		self.csv_fname=sensor_data().fname
 		self.timelimit=time.time()+6
 		self.recived=self.transceive_ser.in_waiting
@@ -96,7 +97,7 @@ class Transciever:
 					output.append(base64.b64decode(data_read))
 				output=b"".join(output)
 				with open("recived_img.png", 'wb') as f:
-        				f.write(output)
+					f.write(output)
 	def transive_choice(self,arugement):
 		""" run this for demo"""
 		if not self.event.is_set():
@@ -104,7 +105,7 @@ class Transciever:
 			self.transmit=True
 			choice ={
 				1:lambda :self.transceive_test_message(self.transmit),
-				2:lambda :self.transceive_test_txt_file(self.transmite),
+				2:lambda :self.transceive_test_txt_file(self.transmit),
 				3:lambda :self.transceive_test_csv(self.transmit),
 				4:lambda :self.Transcevie_png_file(self.transmit)}
 			choice[arugement]()
