@@ -76,10 +76,16 @@ class test_project_code(unittest.TestCase):
     def test_transciver_test_csv(self):
         csv_fname=Transciever_instance.csv_fname
         expected_df=pd.read_csv(csv_fname)
+        Transciever_instance.transceive_test_csv(True)
         reviced_df=Transciever_instance.transceive_test_csv(False)
         self.assertEqual(expected_df,reviced_df)
     def test_trancsive_img_file(self):
         img_fname=Transciever_instance.png_fname
+        with open(img_fname,'rb')as f:
+            expted_out=f.read()
+        Transciever_instance.Transcevie_png_file(True)
+        received_bin=Transciever_instance.Transcevie_png_file(False)
+        self.assertEqual(expted_out,received_bin)
 if __name__ == '__main__':
     unittest.main()
 
