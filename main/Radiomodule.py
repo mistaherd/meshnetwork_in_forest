@@ -78,7 +78,7 @@ class Transciever:
 	#test png,jpg
 
 	#Test png,jpg
-	def Transcevie_png_file(self,transceive):
+	def Transcevie_png_file(self,transceive:bool):
 		"""Transmit a PNG file"""
 		if transceive:
 			with open(self.png_fname, 'rb') as f:
