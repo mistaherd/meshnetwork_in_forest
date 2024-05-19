@@ -72,8 +72,8 @@ class Transciever:
 					data=self.transceive_ser.readlines()
 					output=[data[i].decode()[:-1].split(",") for i in range(len(data))]
 					df=pd.DataFrame(output)
-					print(df)
 					self.event.clear()
+					return df
 	#test png,jpg
 
 	#Test png,jpg
