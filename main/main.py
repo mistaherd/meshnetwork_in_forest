@@ -9,7 +9,7 @@ camera_obj=camera()
 mem_obj=Memory_tester()
 transive_obj=Transciever()
 sen_data.write_append_csv()
-#camera_obj.run
+camera_obj.run
 mem_obj.error_check()
 #Then we transmit th
 transive_obj.transive_choice(sys.argv[1])

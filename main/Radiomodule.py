@@ -4,7 +4,6 @@ import serial
 import pandas as pd
 import numpy as np
 import threading
-import subprocess
 import base64
 from memory_mangment import sensor_data
 class Transciever:
@@ -82,11 +81,14 @@ class Transciever:
 		"""Transmit a PNG file"""
 		if transceive:
 			with open(self.png_fname, 'rb') as f:
-				data = f.read()
-			chunks=[data[i:i+self.chunk_size] for i in range(0,len(data),self.chunk_size)]
-			for chunk in range(len(chunks)):
-				encoded_chunk=base64.b64encode(chunk)
-				self.transceive_ser.write(encoded_chunk)
+				self.data = f.read()
+			if self.cal_bytes()>self.chunk_size:
+				chunks=[data[i:i+self.chunk_size] for i in range(0,len(self.data),self.chunk_size)]
+				for chunk in range(len(chunks)):
+					encoded_chunk=base64.b64encode(chunk)
+					self.transceive_ser.write(encoded_chunk)
+			else:
+				raise ValueError("Image file must be corrupted")
 		if not transceive:
 			output=[]
 			self.transceive_ser.attachInterrupt(self.serial_interrupt)
