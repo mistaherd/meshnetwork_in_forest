@@ -6,4 +6,4 @@ if [ ! -d "$output_dir" ]; then
   # Create the directory if it doesn't exist
   mkdir -p "$output_dir"
 fi
-rpicam-still --raw -o "$output_dir/$fname"
+raspistill --raw -o "$output_dir/$fname"
