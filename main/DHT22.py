@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11/site-packages
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
 import adafruit_dht
 import board
 import pandas as pd

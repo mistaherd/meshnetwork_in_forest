@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
 from DFRobot_ADS1115 import ADS1115
 import time
 class DFR0026():

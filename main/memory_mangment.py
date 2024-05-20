@@ -1,11 +1,11 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
 import pandas as pd
 from DHT22 import DHT22
 from AS312 import AS312
 from DFR0026 import DFR0026
 import glob
 import datetime
-import re 
+import re
 import subprocess
 class sensor_data:
 	def __init__(self):
@@ -39,7 +39,7 @@ class Memory_tester():
 		self.fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/bash_scrpits/memorytest.sh" 
 		self.output_bash=subprocess.run(['bash',self.fname],capture_output=True,text=True)
 	def check_memory(self):
-		try:	
+		try:
 			match=re.match(self.regex,self.output_bash.stdout[:-1])
 			if match:
 				value,unit=self.output_bash.stdout[:-1][:-1],self.output_bash.stdout[:-1][-1:]
@@ -49,7 +49,6 @@ class Memory_tester():
 					raise ValueError(f"unknown unit: {unit}")
 		except subprocess.CalledProcessError as e:
 			raise ValueError(f"Error running script:{e.output}")
-	
 	def error_check(self):
 		mem=round(self.check_memory())
 		max=32*10e9
