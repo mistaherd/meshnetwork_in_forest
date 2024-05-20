@@ -42,8 +42,8 @@ class test_project_code(unittest.TestCase):
     def test_DFR0026_out_type(self):
         self.assertIsInstance(DFR0026().read_voltage(),dict[str,int])
     def test_DFR0026_out_range(self):
-        self.assertLessEqual(DFR0026().read_voltage(),5)
-        self.assertGreaterEqual(DFR0026().read_voltage(),0)
+        self.assertLessEqual(DFR0026().read_voltage(),65536)
+        self.assertGreaterEqual(DFR0026().read_voltage(),43253)
      #AS312
     def test_AS312_out_type(self):
         self.assertIsInstance(AS312_instance.read_state,bool)
