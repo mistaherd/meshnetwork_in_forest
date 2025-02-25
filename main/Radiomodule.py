@@ -5,16 +5,19 @@ import pandas as pd
 import numpy as np
 import threading
 import base64
+import asyncio
 from memory_mangment import sensor_data
 class Transciever:
 	def __init__(self):
-		self.transceive_ser=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
+        self.timeout_limit=2
+		self.transceive_ser=serial.Serial(port='/dev/ttyS0',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=self.timeout_limit)
+
 		self.message="Hello world!"
-		self.chunk_size=240
+		self.byte_size=10
 		self.txt_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Tests/transmited_text.txt"
 		self.png_fname="/home/mistaherd/Documents/Github/meshnetwork_in_forest/Images_camera/camera_output_2024-05-19_13_25_18.png"
 		self.csv_fname=sensor_data().fname
-		self.timelimit=time.time()+6
+		
 		self.recived=self.transceive_ser.in_waiting
 		self.event=threading.Event()
 	def serial_interrupt(self):
@@ -23,7 +26,15 @@ class Transciever:
 	def cal_bytes(self)-> int:
 		return len([bytes(self.data[i],'utf-8').hex() for i in range(len(self.data))])
 
-	# hello world
+    async def receiver_logic(self,byte_limit:bool):
+        # Handle receiver 
+        async with asyncio.timeout(self.timeout_limit):
+            if not byte_limit:
+                data = await self.transceive_ser.readline()
+            else:
+                data = await self.transceive_ser.read(self.byte_size))
+        # decode
+        
 	def transceive_test_message(self,transceive:bool):
 		"""send /recive a hello world"""
 		if transceive:
@@ -50,7 +61,7 @@ class Transciever:
 			time.sleep(0.2)
 		if not transceive:
 			while time.time()< self.timelimit:
-				self.transceive_ser.attachInterrupt(self.serial_interrupt)
+                self.transceive_ser.attachInterrupt(self.serial_interrupt)
 				if self.event.is_set():
 					data_read=self.transceive_ser.readline()
 					data=data_read.decode("utf-8")
