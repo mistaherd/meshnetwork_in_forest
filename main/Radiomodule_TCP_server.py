@@ -3,6 +3,8 @@ import threading
 import datetime
 import asyncio
 import subprocess
+import re
+import os
 nodes=2
 byte_limit=0x3FF
 time_limit=5
@@ -49,7 +51,19 @@ async def Check_health():
     subprocess.run(command, check=True)
     with open('../data_storage/sys_dia.txt') as f:
         data=f.readlines()
+        data=''.join(data)
         return bytes(data,'utf-8')
+
+async def Check_camera():
+    command=["bash","../bash_scrpits/camerea.sh"]
+    subprocess.run(command, check=True)
+    command=["bash","../bash_scrpits/Get_most_recent_pic.sh"]
+    Imagefile=subprocess.run(command, capture_output=True, text=True).stdout.strip()
+    with open (imagefile,'rb') as f:
+        image_data=f.read()
+        image_size=len(image_data)
+
+
 async def Sensor_data():
     with open('../data_storage/sensor.csv','r') as f:
         data=f.readlines()
