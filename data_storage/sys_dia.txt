@@ -1,0 +1,203 @@
+The current processes are as follows: 
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 May13 ?        00:00:03 /sbin/init
+root           2       0  0 May13 ?        00:00:00 [kthreadd]
+root           3       2  0 May13 ?        00:00:00 [rcu_gp]
+root           4       2  0 May13 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 May13 ?        00:00:00 [netns]
+root           9       2  0 May13 ?        00:00:00 [mm_percpu_wq]
+root          10       2  0 May13 ?        00:00:00 [rcu_tasks_kthre]
+root          11       2  0 May13 ?        00:00:00 [rcu_tasks_rude_]
+root          12       2  0 May13 ?        00:00:00 [rcu_tasks_trace]
+root          13       2  0 May13 ?        00:00:01 [ksoftirqd/0]
+root          14       2  0 May13 ?        00:00:01 [rcu_preempt]
+root          15       2  0 May13 ?        00:00:00 [migration/0]
+root          16       2  0 May13 ?        00:00:00 [cpuhp/0]
+root          17       2  0 May13 ?        00:00:00 [cpuhp/1]
+root          18       2  0 May13 ?        00:00:00 [migration/1]
+root          19       2  0 May13 ?        00:00:00 [ksoftirqd/1]
+root          22       2  0 May13 ?        00:00:00 [cpuhp/2]
+root          23       2  0 May13 ?        00:00:00 [migration/2]
+root          24       2  0 May13 ?        00:00:00 [ksoftirqd/2]
+root          26       2  0 May13 ?        00:00:00 [kworker/2:0H-kblockd]
+root          27       2  0 May13 ?        00:00:00 [cpuhp/3]
+root          28       2  0 May13 ?        00:00:00 [migration/3]
+root          29       2  0 May13 ?        00:00:00 [ksoftirqd/3]
+root          32       2  0 May13 ?        00:00:00 [kdevtmpfs]
+root          33       2  0 May13 ?        00:00:00 [inet_frag_wq]
+root          38       2  0 May13 ?        00:00:00 [kauditd]
+root          41       2  0 May13 ?        00:00:00 [khungtaskd]
+root          42       2  0 May13 ?        00:00:00 [oom_reaper]
+root          43       2  0 May13 ?        00:00:00 [writeback]
+root          44       2  0 May13 ?        00:00:01 [kcompactd0]
+root          77       2  0 May13 ?        00:00:00 [kblockd]
+root          78       2  0 May13 ?        00:00:00 [blkcg_punt_bio]
+root          79       2  0 May13 ?        00:00:00 [watchdogd]
+root          81       2  0 May13 ?        00:00:00 [rpciod]
+root          82       2  0 May13 ?        00:01:47 [kworker/u9:0-brcmf_wq/mmc1:0001:1]
+root          83       2  0 May13 ?        00:00:00 [xprtiod]
+root          89       2  0 May13 ?        00:00:00 [kswapd0]
+root          90       2  0 May13 ?        00:00:00 [nfsiod]
+root          92       2  0 May13 ?        00:00:00 [kthrotld]
+root          93       2  0 May13 ?        00:00:00 [iscsi_eh]
+root          94       2  0 May13 ?        00:00:00 [iscsi_conn_clea]
+root          95       2  0 May13 ?        00:00:00 [nvme-wq]
+root          96       2  0 May13 ?        00:00:00 [nvme-reset-wq]
+root          97       2  0 May13 ?        00:00:00 [nvme-delete-wq]
+root          99       2  0 May13 ?        00:00:00 [DWC Notificatio]
+root         100       2  0 May13 ?        00:00:00 [uas]
+root         101       2  0 May13 ?        00:00:00 [vchiq-slot/0]
+root         102       2  0 May13 ?        00:00:00 [vchiq-recy/0]
+root         103       2  0 May13 ?        00:00:00 [vchiq-sync/0]
+root         104       2  0 May13 ?        00:00:00 [zswap-shrink]
+root         110       2  0 May13 ?        00:00:00 [sdhci]
+root         111       2  0 May13 ?        00:00:00 [irq/28-mmc0]
+root         114       2  0 May13 ?        00:00:00 [mmc_complete]
+root         115       2  0 May13 ?        00:00:00 [kworker/3:1H-kblockd]
+root         116       2  0 May13 ?        00:00:00 [kworker/1:1H-kblockd]
+root         117       2  0 May13 ?        00:00:00 [jbd2/mmcblk0p2-]
+root         118       2  0 May13 ?        00:00:00 [ext4-rsv-conver]
+root         123       2  0 May13 ?        00:00:00 [mld]
+root         124       2  0 May13 ?        00:00:00 [ipv6_addrconf]
+root         184       1  0 May13 ?        00:00:01 /usr/lib/systemd/systemd-journald
+root         234       1  0 May13 ?        00:00:02 /usr/lib/systemd/systemd-udevd
+root         291       2  0 May13 ?        00:00:00 [vchiq-keep/0]
+root         292       2  0 May13 ?        00:00:00 [SMIO]
+root         328       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         331       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         333       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         335       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         340       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         341       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         342       2  0 May13 ?        00:00:00 [mmal-vchiq]
+root         374       2  0 May13 ?        00:00:00 [cfg80211]
+root         386       2  0 May13 ?        00:00:00 [brcmf_wq/mmc1:0]
+root         392       2  0 May13 ?        00:00:12 [brcmf_wdog/mmc1]
+systemd+     402       1  0 May13 ?        00:00:00 /usr/lib/systemd/systemd-timesyncd
+systemd+     459       1  0 May13 ?        00:00:00 /usr/lib/systemd/systemd-networkd
+root         604       1  0 May13 ?        00:00:00 /usr/libexec/accounts-daemon
+root         606       1  0 May13 ?        00:00:00 /usr/sbin/cron -f
+message+     607       1  0 May13 ?        00:00:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-a
+polkitd      609       1  0 May13 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=err
+root         610       1  0 May13 ?        00:00:00 /usr/sbin/rsyslogd -n -iNONE
+root         611       1  0 May13 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root         631       1  0 May13 ?        00:00:04 /usr/sbin/NetworkManager --no-daemon
+root         644       1  0 May13 ?        00:00:00 /usr/sbin/ModemManager
+root         662       1  0 May13 ?        00:00:00 /usr/sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
+root         673       1  0 May13 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         687       1  0 May13 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
+root         743       1  0 May13 ?        00:00:00 /usr/bin/hciattach /dev/serial1 bcm43xx 3000000 flow -
+root         744       2  0 May13 ?        00:00:39 [kworker/u9:2-brcmf_wq/mmc1:0001:1]
+root         769       1  0 May13 ?        00:00:00 /usr/libexec/bluetooth/bluetoothd
+root         785       2  0 May13 ?        00:00:00 [krfcommd]
+rtkit        849       1  0 May13 ?        00:00:00 /usr/libexec/rtkit-daemon
+root        2679     673  0 May13 ?        00:00:00 sshd-session: lanzb [priv]
+lanzb       2683       1  0 May13 ?        00:00:00 /usr/lib/systemd/systemd --user
+lanzb       2684    2683  0 May13 ?        00:00:00 (sd-pam)
+lanzb       2702    2683  0 May13 ?        00:00:00 /usr/bin/pipewire
+lanzb       2703    2683  0 May13 ?        00:00:00 /usr/bin/pipewire -c filter-chain.conf
+lanzb       2704    2683  0 May13 ?        00:00:00 /usr/bin/wireplumber
+lanzb       2709    2683  0 May13 ?        00:00:00 /usr/bin/pipewire-pulse
+lanzb       2710    2679  0 May13 ?        00:00:24 sshd-session: lanzb@pts/0
+lanzb       2711    2683  0 May13 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-
+lanzb       2717    2710  0 May13 pts/0    00:00:36 -zsh
+lanzb       2749    2683  0 May13 ?        00:00:00 /usr/libexec/xdg-permission-store
+lanzb       2771    2683  0 May13 ?        00:00:00 /usr/libexec/gvfsd
+lanzb       2777    2683  0 May13 ?        00:00:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+root        3882       2  0 May13 ?        00:00:00 [kworker/0:1H-mmc_complete]
+root        3955       2  0 May13 ?        00:00:00 [kworker/1:2H]
+root        4118       2  0 00:14 ?        00:00:01 [kworker/1:0-mm_percpu_wq]
+root        4495       2  0 00:56 ?        00:00:00 [kworker/2:1H]
+root        4820       2  0 01:23 ?        00:00:03 [kworker/0:1-mm_percpu_wq]
+root        4888       2  0 01:25 ?        00:00:00 [kworker/0:0H]
+lanzb       4931    2717  0 01:31 pts/0    00:00:10 vim test.py
+root        4932       2  0 01:31 ?        00:00:00 [kworker/u8:1-events_unbound]
+lanzb       4934    4931  1 01:31 pts/1    00:00:15 /usr/bin/zsh
+root        4965       2  0 01:33 ?        00:00:00 [kworker/3:1-events]
+root        5052       2  0 01:36 ?        00:00:00 [kworker/2:3-events]
+root        5078       2  0 01:37 ?        00:00:00 [kworker/1:1-events]
+root        5100       2  0 01:38 ?        00:00:00 [kworker/3:0H]
+root        5245       2  0 01:39 ?        00:00:00 [kworker/3:0-events]
+root        5268       2  0 01:41 ?        00:00:00 [kworker/2:0-events]
+root        5274       2  0 01:42 ?        00:00:01 [kworker/0:2-events]
+root        5329       2  0 01:42 ?        00:00:00 [kworker/u8:0-ext4-rsv-conversion]
+root        5402       2  0 01:44 ?        00:00:00 [kworker/3:2-mm_percpu_wq]
+root        5406       2  0 01:46 ?        00:00:00 [kworker/2:1-events]
+root        5407       2  0 01:47 ?        00:00:00 [kworker/0:0-events]
+root        5408       2  0 01:47 ?        00:00:00 [kworker/u8:2-events_unbound]
+root        5421       2  0 01:49 ?        00:00:00 [kworker/1:2-events]
+root        5434       2  0 01:49 ?        00:00:00 [kworker/1:0H]
+root        5435       2  0 01:49 ?        00:00:00 [kworker/3:3-mm_percpu_wq]
+root        5463       2  0 01:51 ?        00:00:00 [kworker/0:3-events]
+lanzb       5469    4934  0 01:51 pts/1    00:00:00 /bin/bash ./sys_diag.sh
+lanzb       5470    5469  0 01:51 pts/1    00:00:00 ps -ef
+memory useage: 
+               total        used        free      shared  buff/cache   available
+Mem:           3.7Gi       162Mi       1.2Gi       1.2Mi       2.4Gi       3.5Gi
+Swap:             0B          0B          0B
+Current services
+  UNIT                                           LOAD   ACTIVE SUB     DESCRIPTION
+  accounts-daemon.service                        loaded active running Accounts Service
+  alsa-restore.service                           loaded active exited  Save/Restore Sound Card State
+  bluetooth.service                              loaded active running Bluetooth service
+  bthelper@hci0.service                          loaded active exited  Raspberry Pi bluetooth helper
+  cloud-config.service                           loaded active exited  Cloud-init: Config Stage
+  cloud-final.service                            loaded active exited  Cloud-init: Final Stage
+  cloud-init-local.service                       loaded active exited  Cloud-init: Local Stage (pre-network)
+  cloud-init-network.service                     loaded active exited  Cloud-init: Network Stage
+  console-setup.service                          loaded active exited  Set console font and keymap
+  cron.service                                   loaded active running Regular background program processing daemon
+  dbus.service                                   loaded active running D-Bus System Message Bus
+  getty@tty1.service                             loaded active running Getty on tty1
+  hciuart.service                                loaded active running Configure Bluetooth Modems connected by UART
+● ifup@eth0.service                              loaded failed failed  ifup for eth0
+  ifupdown-pre.service                           loaded active exited  Helper to synchronize boot up for ifupdown
+  keyboard-setup.service                         loaded active exited  Set the console keyboard layout
+  kmod-static-nodes.service                      loaded active exited  Create List of Static Device Nodes
+● lightdm.service                                loaded failed failed  Light Display Manager
+  ModemManager.service                           loaded active running Modem Manager
+● networking.service                             loaded failed failed  Raise network interfaces
+  NetworkManager-wait-online.service             loaded active exited  Network Manager Wait Online
+  NetworkManager.service                         loaded active running Network Manager
+  plymouth-quit-wait.service                     loaded active exited  Hold until boot process finishes up
+● plymouth-quit.service                          loaded failed failed  Terminate Plymouth Boot Screen
+  plymouth-read-write.service                    loaded active exited  Tell Plymouth To Write Out Runtime Data
+  plymouth-start.service                         loaded active exited  Show Plymouth Boot Screen
+  polkit.service                                 loaded active running Authorization Manager
+  rpc-statd-notify.service                       loaded active exited  Notify NFS peers of a restart
+  rsyslog.service                                loaded active running System Logging Service
+  rtkit-daemon.service                           loaded active running RealtimeKit Scheduling Policy Service
+  runonce.service                                loaded active exited  Scripts that should be run only once
+  ssh.service                                    loaded active running OpenBSD Secure Shell server
+  systemd-binfmt.service                         loaded active exited  Set Up Additional Binary Formats
+  systemd-fsck-root.service                      loaded active exited  File System Check on Root Device
+  systemd-fsck@dev-disk-by\x2dlabel-BOOT.service loaded active exited  File System Check on /dev/disk/by-label/BOOT
+  systemd-journal-flush.service                  loaded active exited  Flush Journal to Persistent Storage
+  systemd-journald.service                       loaded active running Journal Service
+  systemd-logind.service                         loaded active running User Login Management
+  systemd-modules-load.service                   loaded active exited  Load Kernel Modules
+  systemd-networkd-persistent-storage.service    loaded active exited  Enable Persistent Storage in systemd-networkd
+● systemd-networkd-wait-online.service           loaded failed failed  Wait for Network to be Configured
+  systemd-networkd.service                       loaded active running Network Configuration
+  systemd-random-seed.service                    loaded active exited  Load/Save OS Random Seed
+  systemd-remount-fs.service                     loaded active exited  Remount Root and Kernel File Systems
+  systemd-sysctl.service                         loaded active exited  Apply Kernel Variables
+  systemd-timesyncd.service                      loaded active running Network Time Synchronization
+  systemd-tmpfiles-setup-dev-early.service       loaded active exited  Create Static Device Nodes in /dev gracefully
+  systemd-tmpfiles-setup-dev.service             loaded active exited  Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                 loaded active exited  Create System Files and Directories
+  systemd-udev-load-credentials.service          loaded active exited  Load udev Rules from Credentials
+  systemd-udev-trigger.service                   loaded active exited  Coldplug All udev Devices
+  systemd-udevd.service                          loaded active running Rule-based Manager for Device Events and Files
+  systemd-update-utmp.service                    loaded active exited  Record System Boot/Shutdown in UTMP
+  systemd-user-sessions.service                  loaded active exited  Permit User Sessions
+  user-runtime-dir@1000.service                  loaded active exited  User Runtime Directory /run/user/1000
+  user@1000.service                              loaded active running User Manager for UID 1000
+  wpa_supplicant.service                         loaded active running WPA supplicant
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+57 loaded units listed. Pass --all to see loaded but inactive units, too.
+To show all installed unit files use 'systemctl list-unit-files'.
