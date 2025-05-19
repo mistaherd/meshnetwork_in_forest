@@ -71,12 +71,15 @@ async def Sensor_data():
         data=''.join(data)
         return bytes(data,'utf-8')
 async def run_server():
-    server_ip="127.0.0.1"
-    port=8000
+    hostname=socket.gethostname()
+
+    server_ip="0.0.0.0"
+    port=12345
     server =socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     try:
         server.bind((server_ip,port))
-        server.listen(nodes-1)
+        server.listen(5)
+        print(f"Server listening on {server_ip}:{port}")
 
         
         client_socket,client_address=server.accept()
@@ -88,4 +91,4 @@ async def run_server():
     finally:
         server.close()
 if __name__=="__main__":
-    asyncio.run(run_server())
+    asyncio.run(run_server()):
