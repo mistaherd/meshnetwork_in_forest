@@ -22,16 +22,19 @@ async def run_client():
     server_port=12345
     try:
         client.connect((server_ip,server_port))
+    
         while True:
             request=input("\nEnter command: ")
+            if request=="close":
+                
+                break
             await handle_request(request,client)
 
             response=client.recv(byte_limit)
-            print(f"Response from server: {response}")
-            response=response.decode("utf-8")
-
-            if response.lower()=="closed"or request=="close":
+            if response.lower()=="closed":
                 break
+            response=response.decode("utf-8")
+            print(f"Response from server: {response}")
 
     except ConnectionRefusedError:
         print("the connection was refused")
