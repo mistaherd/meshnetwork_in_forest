@@ -13,8 +13,8 @@ async def handle_request(request,client):
         "Check_camera":client.send(request.encode("utf-8")),# a way to test a simple send /recivebd",#selection of tranport vid
         # a way to test a simple send /recivetbd",
         "Sensor_data":client.send(request.encode("utf-8")),# a way to test a simple send /recive
-        "Help":client.send(request.endcode("utf-8")),
-        "close":client.send(request.endcode("utf-8"))
+        "Help":client.send(request.encode("utf-8")),
+        "close":client.send(request.encode("utf-8"))
     }
 async def run_client():
     client=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
