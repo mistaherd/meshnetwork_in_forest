@@ -22,19 +22,19 @@ async def handle_client(client_socket,addr):
              
             response=await handle_request(request,client_soc)
             client_socket.send(response)
-             if request.lower()=="close":
-                 client_socket.send("closed").encode("utf-8")
-                 break
+            if request.lower()=="close":
+                client_socket.send("closed").encode("utf-8")
+                break
     except Exception as e:
         print(f"Error with connection from {addr}: {e}")
-        break
+        #break
     finally:
         client_socket.close()
 
 
 async def handle_request(request,client_socket):
     request_dict={
-            "Get message":await Message(),#just a hello world
+            "Message":await Message(),#just a hello world
             "Check_health":await Check_health(),
             "Check_camera":await Check_camera(client_socket),
             "Sensor_data":await Sensor_data(),
@@ -71,7 +71,7 @@ async def Sensor_data():
         data=''.join(data)
         return bytes(data,'utf-8')
 async def run_server():
-    server="127.0.0.1"
+    server_ip="127.0.0.1"
     port=8000
     server =socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     try:
@@ -82,7 +82,7 @@ async def run_server():
         client_socket,client_address=server.accept()
         print(f"Accepted connection from {client_address[0]}:{client_address[1]}")
         await handle_client(client_socket,client_address)
-       
+        
     except Exception as e:
         print(f"Error: {e}")
     finally:
