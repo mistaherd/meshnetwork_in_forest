@@ -19,12 +19,14 @@ async def handle_client(client_socket,addr):
 
             request=client_socket.recv(byte_limit).decode("utf-8")
 
-             
-            response=await handle_request(request,client_soc)
-            client_socket.send(response)
             if request.lower()=="close":
                 client_socket.send("closed").encode("utf-8")
                 break
+             
+            response=await handle_request(request,client_socket)
+            if response!=None:
+                client_socket.send(response)
+            
     except Exception as e:
         print(f"Error with connection from {addr}: {e}")
         #break
@@ -33,14 +35,21 @@ async def handle_client(client_socket,addr):
 
 
 async def handle_request(request,client_socket):
-    request_dict={
-            "Message":await Message(),#just a hello world
-            "Check_health":await Check_health(),
-            "Check_camera":await Check_camera(client_socket),
-            "Sensor_data":await Sensor_data(),
-            "Help":await request_dict.keys().encode("utf-8")
-            }
-    return request_dict.get(request)
+    print(f"{request=}")
+    match request:
+        case "Message":
+            return await Message()  # Just a hello world
+        case "Check_health":
+            return await Check_health()
+        case "Check_camera":
+            return await Check_camera(client_socket)
+        case "Sensor_data":
+            return await Sensor_data()
+        case "Help":
+            help_message = "Available commands: Message, Check_health, Check_camera, Sensor_data, Help"
+            return help_message.encode("utf-8")
+        case _:  # Default case if no match is found
+            return None  #  
 
 async def Message():
     return f"this sever is online at: {date_time_now}".encode("utf-8")
@@ -83,7 +92,7 @@ async def run_server():
 
         
         client_socket,client_address=server.accept()
-        print(f"Accepted connection from {client_address[0]}:{client_address[1]}")
+        print(f"Accepted connection from {client_address[0]} : {client_address[1]}")
         await handle_client(client_socket,client_address)
         
     except Exception as e:
