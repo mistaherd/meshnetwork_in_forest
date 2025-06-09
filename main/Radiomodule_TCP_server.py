@@ -20,7 +20,7 @@ async def handle_client(client_socket,addr):
             request=client_socket.recv(byte_limit).decode("utf-8")
 
             if request.lower()=="close":
-                client_socket.send("closed").encode("utf-8")
+                client_socket.send("closed".encode("utf-8"))
                 break
              
             response=await handle_request(request,client_socket)

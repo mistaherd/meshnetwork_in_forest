@@ -1,137 +1,141 @@
 The current processes are as follows: 
 UID          PID    PPID  C STIME TTY          TIME CMD
-root           1       0  0 11:51 ?        00:00:02 /sbin/init
-root           2       0  0 11:51 ?        00:00:00 [kthreadd]
-root           3       2  0 11:51 ?        00:00:00 [rcu_gp]
-root           4       2  0 11:51 ?        00:00:00 [rcu_par_gp]
-root           5       2  0 11:51 ?        00:00:00 [netns]
-root           9       2  0 11:51 ?        00:00:00 [mm_percpu_wq]
-root          10       2  0 11:51 ?        00:00:00 [rcu_tasks_kthre]
-root          11       2  0 11:51 ?        00:00:00 [rcu_tasks_rude_]
-root          12       2  0 11:51 ?        00:00:00 [rcu_tasks_trace]
-root          13       2  0 11:51 ?        00:00:00 [ksoftirqd/0]
-root          14       2  0 11:51 ?        00:00:01 [rcu_preempt]
-root          15       2  0 11:51 ?        00:00:00 [migration/0]
-root          16       2  0 11:51 ?        00:00:00 [cpuhp/0]
-root          17       2  0 11:51 ?        00:00:00 [cpuhp/1]
-root          18       2  0 11:51 ?        00:00:00 [migration/1]
-root          19       2  0 11:51 ?        00:00:00 [ksoftirqd/1]
-root          22       2  0 11:51 ?        00:00:00 [cpuhp/2]
-root          23       2  0 11:51 ?        00:00:00 [migration/2]
-root          24       2  0 11:51 ?        00:00:00 [ksoftirqd/2]
-root          27       2  0 11:51 ?        00:00:00 [cpuhp/3]
-root          28       2  0 11:51 ?        00:00:00 [migration/3]
-root          29       2  0 11:51 ?        00:00:00 [ksoftirqd/3]
-root          32       2  0 11:51 ?        00:00:00 [kdevtmpfs]
-root          33       2  0 11:51 ?        00:00:00 [inet_frag_wq]
-root          38       2  0 11:51 ?        00:00:00 [kauditd]
-root          41       2  0 11:51 ?        00:00:00 [khungtaskd]
-root          42       2  0 11:51 ?        00:00:00 [oom_reaper]
-root          43       2  0 11:51 ?        00:00:00 [writeback]
-root          44       2  0 11:51 ?        00:00:00 [kcompactd0]
-root          77       2  0 11:51 ?        00:00:00 [kblockd]
-root          78       2  0 11:51 ?        00:00:00 [blkcg_punt_bio]
-root          79       2  0 11:51 ?        00:00:00 [watchdogd]
-root          81       2  0 11:51 ?        00:00:00 [rpciod]
-root          82       2  0 11:51 ?        00:00:01 [kworker/u9:0-brcmf_wq/mmc1:0001:1]
-root          83       2  0 11:51 ?        00:00:00 [xprtiod]
-root          89       2  0 11:51 ?        00:00:00 [kswapd0]
-root          90       2  0 11:51 ?        00:00:00 [nfsiod]
-root          92       2  0 11:51 ?        00:00:00 [kthrotld]
-root          93       2  0 11:51 ?        00:00:00 [iscsi_eh]
-root          94       2  0 11:51 ?        00:00:00 [iscsi_conn_clea]
-root          95       2  0 11:51 ?        00:00:00 [nvme-wq]
-root          96       2  0 11:51 ?        00:00:00 [nvme-reset-wq]
-root          97       2  0 11:51 ?        00:00:00 [nvme-delete-wq]
-root          99       2  0 11:51 ?        00:00:00 [DWC Notificatio]
-root         100       2  0 11:51 ?        00:00:00 [uas]
-root         101       2  0 11:51 ?        00:00:00 [vchiq-slot/0]
-root         102       2  0 11:51 ?        00:00:00 [vchiq-recy/0]
-root         103       2  0 11:51 ?        00:00:00 [vchiq-sync/0]
-root         104       2  0 11:51 ?        00:00:00 [zswap-shrink]
-root         110       2  0 11:51 ?        00:00:00 [sdhci]
-root         111       2  0 11:51 ?        00:00:00 [irq/28-mmc0]
-root         114       2  0 11:51 ?        00:00:00 [mmc_complete]
-root         115       2  0 11:51 ?        00:00:00 [kworker/3:1H-kblockd]
-root         116       2  0 11:51 ?        00:00:00 [jbd2/mmcblk0p2-]
-root         117       2  0 11:51 ?        00:00:00 [ext4-rsv-conver]
-root         120       2  0 11:51 ?        00:00:00 [mld]
-root         121       2  0 11:51 ?        00:00:00 [ipv6_addrconf]
-root         123       2  0 11:51 ?        00:00:00 [kworker/1:1H-kblockd]
-root         126       2  0 11:51 ?        00:00:00 [kworker/2:1H-kblockd]
-root         184       1  0 11:51 ?        00:00:00 /usr/lib/systemd/systemd-journald
-root         233       1  0 11:51 ?        00:00:02 /usr/lib/systemd/systemd-udevd
-root         307       2  0 11:51 ?        00:00:00 [vchiq-keep/0]
-root         308       2  0 11:51 ?        00:00:00 [SMIO]
-root         335       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         337       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         339       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         343       2  0 11:51 ?        00:00:00 [cfg80211]
-root         345       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         347       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         348       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-root         349       2  0 11:51 ?        00:00:00 [brcmf_wq/mmc1:0]
-root         350       2  0 11:51 ?        00:00:05 [brcmf_wdog/mmc1]
-root         352       2  0 11:51 ?        00:00:00 [mmal-vchiq]
-systemd+     404       1  0 11:51 ?        00:00:00 /usr/lib/systemd/systemd-timesyncd
-systemd+     476       1  0 11:51 ?        00:00:00 /usr/lib/systemd/systemd-networkd
-root         623       1  0 11:53 ?        00:00:00 /usr/libexec/accounts-daemon
-root         625       1  0 11:53 ?        00:00:00 /usr/sbin/cron -f
-message+     626       1  0 11:53 ?        00:00:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
-polkitd      628       1  0 11:53 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=err
-root         629       1  0 11:53 ?        00:00:00 /usr/sbin/rsyslogd -n -iNONE
-root         630       1  0 11:53 ?        00:00:00 /usr/lib/systemd/systemd-logind
-root         653       1  0 11:53 ?        00:00:02 /usr/sbin/NetworkManager --no-daemon
-root         663       1  0 11:53 ?        00:00:00 /usr/sbin/ModemManager
-root         680       1  0 11:53 ?        00:00:00 /usr/sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
-root         691       1  0 11:53 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-root         705       1  0 11:53 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
-root         761       2  0 11:53 ?        00:00:40 [kworker/u9:2-brcmf_wq/mmc1:0001:1]
-root         762       1  0 11:53 ?        00:00:00 /usr/bin/hciattach /dev/serial1 bcm43xx 3000000 flow -
-root         786       1  0 11:53 ?        00:00:00 /usr/libexec/bluetooth/bluetoothd
-root         803       2  0 11:53 ?        00:00:00 [krfcommd]
-lanzb        900       1  0 11:56 ?        00:00:00 /usr/lib/systemd/systemd --user
-lanzb        901     900  0 11:56 ?        00:00:00 (sd-pam)
-lanzb        919     900  0 11:56 ?        00:00:00 /usr/bin/pipewire
-lanzb        920     900  0 11:56 ?        00:00:00 /usr/bin/pipewire -c filter-chain.conf
-lanzb        922     900  0 11:56 ?        00:00:00 /usr/bin/wireplumber
-lanzb        924     900  0 11:56 ?        00:00:00 /usr/bin/pipewire-pulse
-lanzb        929     900  0 11:56 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
-rtkit        934       1  0 11:56 ?        00:00:00 /usr/libexec/rtkit-daemon
-lanzb        979     900  0 11:56 ?        00:00:00 /usr/libexec/xdg-permission-store
-root        2043     691  0 13:34 ?        00:00:00 sshd-session: lanzb [priv]
-lanzb       2049    2043  0 13:34 ?        00:00:13 sshd-session: lanzb@pts/0
-lanzb       2050    2049  0 13:34 pts/0    00:00:25 -zsh
-lanzb       2332    2050  0 13:37 pts/0    00:00:00 python Radiomodule_TCP_server.py
-root        2521       2  0 13:57 ?        00:00:00 [kworker/0:2H-mmc_complete]
-root        2901       2  0 15:04 ?        00:00:00 [kworker/u8:0-flush-179:0]
-root        2985       2  0 15:07 ?        00:00:00 [kworker/3:1-events]
-root        3455       2  0 15:13 ?        00:00:00 [kworker/1:0-events]
-root        3609       2  0 15:21 ?        00:00:02 [kworker/0:1-events]
-root        3816       2  0 15:29 ?        00:00:00 [kworker/u8:1-events_unbound]
-root        3817       2  0 15:29 ?        00:00:00 [kworker/2:1-events]
-root        3838       2  0 15:30 ?        00:00:00 [kworker/1:2H]
-root        3839       2  0 15:31 ?        00:00:00 [kworker/0:0-events]
-root        3850       2  0 15:33 ?        00:00:00 [kworker/2:0H]
-root        4077       2  0 15:33 ?        00:00:00 [kworker/0:1H-events_highpri]
-root        4160       2  0 15:33 ?        00:00:00 [kworker/3:2H]
-root        4231       2  0 15:38 ?        00:00:00 [kworker/2:0-events]
-root        4232       2  0 15:38 ?        00:00:01 [kworker/0:2-events]
-root        4235       2  0 15:39 ?        00:00:00 [kworker/1:1-events]
-root        4282       2  0 15:39 ?        00:00:00 [kworker/3:0-mm_percpu_wq]
-root        4288       2  0 15:39 ?        00:00:00 [kworker/u8:2-ext4-rsv-conversion]
-root        4298       2  0 15:39 ?        00:00:00 [kworker/3:0H]
-root        4547       2  0 15:40 ?        00:00:00 [kworker/1:0H]
-root        4548       2  0 15:40 ?        00:00:00 [kworker/0:3-events]
-root        4619       2  0 15:41 ?        00:00:00 [kworker/2:2H]
-root        4841       2  0 15:43 ?        00:00:00 [kworker/2:2-events]
-lanzb       4857    2050  2 15:44 pts/0    00:00:00 python Radiomodule_TCP_server.py
-root        4858       2  0 15:44 ?        00:00:00 [kworker/1:2-events]
-lanzb       4859    4857  0 15:44 pts/0    00:00:00 bash ../bash_scrpits/sys_diag.sh
-lanzb       4860    4859  0 15:44 pts/0    00:00:00 ps -ef
+root           1       0  0 12:20 ?        00:00:02 /sbin/init
+root           2       0  0 12:20 ?        00:00:00 [kthreadd]
+root           3       2  0 12:20 ?        00:00:00 [rcu_gp]
+root           4       2  0 12:20 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 12:20 ?        00:00:00 [netns]
+root           9       2  0 12:20 ?        00:00:00 [mm_percpu_wq]
+root          10       2  0 12:20 ?        00:00:00 [rcu_tasks_kthre]
+root          11       2  0 12:20 ?        00:00:00 [rcu_tasks_rude_]
+root          12       2  0 12:20 ?        00:00:00 [rcu_tasks_trace]
+root          13       2  0 12:20 ?        00:00:00 [ksoftirqd/0]
+root          14       2  0 12:20 ?        00:00:01 [rcu_preempt]
+root          15       2  0 12:20 ?        00:00:00 [migration/0]
+root          16       2  0 12:20 ?        00:00:00 [cpuhp/0]
+root          17       2  0 12:20 ?        00:00:00 [cpuhp/1]
+root          18       2  0 12:20 ?        00:00:00 [migration/1]
+root          19       2  0 12:20 ?        00:00:00 [ksoftirqd/1]
+root          22       2  0 12:20 ?        00:00:00 [cpuhp/2]
+root          23       2  0 12:20 ?        00:00:00 [migration/2]
+root          24       2  0 12:20 ?        00:00:00 [ksoftirqd/2]
+root          27       2  0 12:20 ?        00:00:00 [cpuhp/3]
+root          28       2  0 12:20 ?        00:00:00 [migration/3]
+root          29       2  0 12:20 ?        00:00:00 [ksoftirqd/3]
+root          32       2  0 12:20 ?        00:00:00 [kdevtmpfs]
+root          33       2  0 12:20 ?        00:00:00 [inet_frag_wq]
+root          38       2  0 12:20 ?        00:00:00 [kauditd]
+root          41       2  0 12:20 ?        00:00:00 [khungtaskd]
+root          42       2  0 12:20 ?        00:00:00 [oom_reaper]
+root          43       2  0 12:20 ?        00:00:00 [writeback]
+root          44       2  0 12:20 ?        00:00:00 [kcompactd0]
+root          77       2  0 12:20 ?        00:00:00 [kblockd]
+root          78       2  0 12:20 ?        00:00:00 [blkcg_punt_bio]
+root          79       2  0 12:20 ?        00:00:00 [watchdogd]
+root          81       2  0 12:20 ?        00:00:00 [rpciod]
+root          82       2  0 12:20 ?        00:00:30 [kworker/u9:0-brcmf_wq/mmc1:0001:1]
+root          83       2  0 12:20 ?        00:00:00 [xprtiod]
+root          89       2  0 12:20 ?        00:00:00 [kswapd0]
+root          90       2  0 12:20 ?        00:00:00 [nfsiod]
+root          92       2  0 12:20 ?        00:00:00 [kthrotld]
+root          93       2  0 12:20 ?        00:00:00 [iscsi_eh]
+root          94       2  0 12:20 ?        00:00:00 [iscsi_conn_clea]
+root          95       2  0 12:20 ?        00:00:00 [nvme-wq]
+root          96       2  0 12:20 ?        00:00:00 [nvme-reset-wq]
+root          97       2  0 12:20 ?        00:00:00 [nvme-delete-wq]
+root          99       2  0 12:20 ?        00:00:00 [DWC Notificatio]
+root         100       2  0 12:20 ?        00:00:00 [uas]
+root         101       2  0 12:20 ?        00:00:00 [vchiq-slot/0]
+root         102       2  0 12:20 ?        00:00:00 [vchiq-recy/0]
+root         103       2  0 12:20 ?        00:00:00 [vchiq-sync/0]
+root         104       2  0 12:20 ?        00:00:00 [zswap-shrink]
+root         110       2  0 12:20 ?        00:00:00 [sdhci]
+root         111       2  0 12:20 ?        00:00:00 [irq/28-mmc0]
+root         114       2  0 12:20 ?        00:00:00 [mmc_complete]
+root         115       2  0 12:20 ?        00:00:00 [kworker/3:1H-kblockd]
+root         116       2  0 12:20 ?        00:00:00 [kworker/1:1H-kblockd]
+root         117       2  0 12:20 ?        00:00:00 [jbd2/mmcblk0p2-]
+root         118       2  0 12:20 ?        00:00:00 [ext4-rsv-conver]
+root         122       2  0 12:20 ?        00:00:00 [kworker/2:1H-kblockd]
+root         124       2  0 12:20 ?        00:00:00 [mld]
+root         125       2  0 12:20 ?        00:00:00 [ipv6_addrconf]
+root         182       1  0 12:20 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root         233       1  0 12:20 ?        00:00:02 /usr/lib/systemd/systemd-udevd
+root         286       2  0 12:20 ?        00:00:00 [vchiq-keep/0]
+root         287       2  0 12:20 ?        00:00:00 [SMIO]
+root         321       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         325       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         330       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         334       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         337       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         341       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         343       2  0 12:20 ?        00:00:00 [mmal-vchiq]
+root         366       2  0 12:20 ?        00:00:00 [cfg80211]
+root         391       2  0 12:20 ?        00:00:00 [brcmf_wq/mmc1:0]
+systemd+     392       1  0 12:20 ?        00:00:00 /usr/lib/systemd/systemd-timesyncd
+root         393       2  0 12:20 ?        00:00:03 [brcmf_wdog/mmc1]
+root         403       2  0 12:20 ?        00:00:00 [kworker/u9:1-hci0]
+systemd+     456       1  0 12:20 ?        00:00:00 /usr/lib/systemd/systemd-networkd
+root         603       1  0 12:22 ?        00:00:00 /usr/libexec/accounts-daemon
+root         605       1  0 12:22 ?        00:00:00 /usr/sbin/cron -f
+message+     606       1  0 12:22 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+polkitd      608       1  0 12:22 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug --log-level=err
+root         609       1  0 12:22 ?        00:00:00 /usr/sbin/rsyslogd -n -iNONE
+root         611       1  0 12:22 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root         632       1  0 12:22 ?        00:00:02 /usr/sbin/NetworkManager --no-daemon
+root         643       1  0 12:22 ?        00:00:00 /usr/sbin/ModemManager
+root         661       1  0 12:22 ?        00:00:00 /usr/sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
+root         673       1  0 12:22 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         686       1  0 12:22 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
+root         743       1  0 12:22 ?        00:00:00 /usr/bin/hciattach /dev/serial1 bcm43xx 3000000 flow -
+root         768       1  0 12:22 ?        00:00:00 /usr/libexec/bluetooth/bluetoothd
+root         784       2  0 12:22 ?        00:00:00 [krfcommd]
+root         899     673  0 12:32 ?        00:00:00 sshd-session: lanzb [priv]
+lanzb        903       1  0 12:32 ?        00:00:00 /usr/lib/systemd/systemd --user
+lanzb        904     903  0 12:32 ?        00:00:00 (sd-pam)
+lanzb        924     903  0 12:32 ?        00:00:00 /usr/bin/pipewire
+lanzb        925     903  0 12:32 ?        00:00:00 /usr/bin/pipewire -c filter-chain.conf
+lanzb        926     903  0 12:32 ?        00:00:00 /usr/bin/wireplumber
+lanzb        929     903  0 12:32 ?        00:00:00 /usr/bin/pipewire-pulse
+lanzb        932     899  0 12:32 ?        00:00:14 sshd-session: lanzb@pts/0
+lanzb        934     932  0 12:32 pts/0    00:00:22 -zsh
+lanzb        935     903  0 12:32 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+rtkit        941       1  0 12:32 ?        00:00:00 /usr/libexec/rtkit-daemon
+lanzb        984     903  0 12:32 ?        00:00:00 /usr/libexec/xdg-permission-store
+lanzb       3707     903  0 12:53 ?        00:00:00 /usr/bin/dirmngr --supervised
+lanzb       3709     903  0 12:53 ?        00:00:00 /usr/bin/gpg-agent --supervised
+root        5035       2  0 13:43 ?        00:00:00 [kworker/2:2H-kblockd]
+root        7713       2  0 13:57 ?        00:00:00 [kworker/1:2-events]
+root        7949       2  0 14:05 ?        00:00:00 [kworker/u8:3-events_unbound]
+root        8008       2  0 14:09 ?        00:00:00 [kworker/0:0H-mmc_complete]
+root        8103       2  0 14:18 ?        00:00:00 [kworker/1:0-events]
+root        8114       2  0 14:18 ?        00:00:00 [kworker/u8:11-events_unbound]
+root        8145       2  0 14:19 ?        00:00:00 [kworker/2:0-events]
+root        8147       2  0 14:20 ?        00:00:02 [kworker/0:0-mm_percpu_wq]
+root        8156       2  0 14:21 ?        00:00:00 [kworker/0:3-events]
+root        8157       2  0 14:21 ?        00:00:00 [kworker/3:0-mm_percpu_wq]
+lanzb       8250     934  0 14:22 pts/0    00:00:00 nvim Radiomodule_TCP_server.py
+lanzb       8252    8250  2 14:22 ?        00:00:19 nvim --embed Radiomodule_TCP_server.py
+lanzb       8680     934  0 14:25 pts/0    00:00:01 nvim
+lanzb       8682    8680  8 14:25 ?        00:00:58 nvim --embed
+root        8733       2  0 14:25 ?        00:00:00 [kworker/3:2H]
+root        8746       2  0 14:25 ?        00:00:00 [kworker/0:2H-events_highpri]
+root        8747       2  0 14:25 ?        00:00:00 [kworker/1:2H]
+lanzb       8748    8682  0 14:25 pts/1    00:00:01 /usr/bin/zsh
+root        8759       2  0 14:26 ?        00:00:01 [kworker/0:1-events]
+root        8760       2  0 14:27 ?        00:00:00 [kworker/1:1-events]
+root        8801       2  0 14:29 ?        00:00:00 [kworker/2:1-events_power_efficient]
+root        8802       2  0 14:29 ?        00:00:00 [kworker/3:1-events]
+root        8814       2  0 14:33 ?        00:00:00 [kworker/u8:0-events_unbound]
+root        8817       2  0 14:34 ?        00:00:00 [kworker/2:2-events]
+root        8822       2  0 14:35 ?        00:00:00 [kworker/3:2-events]
+root        8823       2  0 14:35 ?        00:00:00 [kworker/0:1H]
+lanzb       8824    8748  0 14:36 pts/1    00:00:00 python Radiomodule_TCP_server.py
+lanzb       8825    8824  0 14:36 pts/1    00:00:00 bash ../bash_scrpits/sys_diag.sh
+lanzb       8826    8825 99 14:36 pts/1    00:00:00 ps -ef
 memory useage: 
                total        used        free      shared  buff/cache   available
-Mem:           3.7Gi       168Mi       2.8Gi       1.2Mi       780Mi       3.5Gi
+Mem:           3.7Gi       267Mi       2.4Gi       1.2Mi       1.0Gi       3.4Gi
 Swap:             0B          0B          0B
 Current services
   UNIT                                           LOAD   ACTIVE SUB     DESCRIPTION
