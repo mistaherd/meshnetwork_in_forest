@@ -1,10 +1,10 @@
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 import socket
-import threading
+
 import datetime
 import asyncio
 import subprocess
-import re
-import os
+
 nodes=2
 byte_limit=0x3FF
 time_limit=5
