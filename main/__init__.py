@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 import unittest
 from memory_mangment import sensor_data,Memory_tester
 from DHT22 import DHT22

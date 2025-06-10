@@ -1,3 +1,4 @@
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 import socket
 from dotenv import load_dotenv
 

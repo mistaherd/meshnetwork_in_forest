@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 from DFRobot_ADS1115 import ADS1115
 import time
 class DFR0026():
@@ -17,4 +17,4 @@ class DFR0026():
         return self.ads1115.read_voltage(self.adc_channel)
         #time.sleep(0.2) after read it
 if __name__=="__main__":
-    DFR0026()
+    DFR0026()#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9

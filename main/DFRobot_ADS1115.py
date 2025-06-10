@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/env/lib/python3.11
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 '''!
   @file DFRobot_ADS1115.py
   @brief Provides an Raspberry pi library to read ADS1115 data over I2C. Use this library to read analog voltage values.

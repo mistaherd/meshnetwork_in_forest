@@ -1,4 +1,4 @@
-#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/new_env/lib/python3.9
+#!/home/mistaherd/Documents/Github/meshnetwork_in_forest/.venv/lib/python3.11.9
 import RPi.GPIO as GPIO
 import time
 #pin 17
